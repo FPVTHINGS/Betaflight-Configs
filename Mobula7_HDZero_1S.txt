@@ -1,0 +1,362 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: HappyModel Mobula7 HD (BNF)
+#
+# HARDWARE:
+#   Frame:      HappyModel Mobula7 HD
+#   FC/AIO:     HDZero AIO5 (integrated ELRS SPI)
+#   Motors:     HappyModel RS0802 25000KV (1.5mm shaft)
+#   Props:      HQProp 40mm
+#   Camera:     HDZero Lux
+#   VTX:        Integrated HDZero
+#   Antenna:    Stock 5.8GHz antenna
+#   RX:         Integrated ELRS SPI (on-board, no external RX required)
+#   Battery:    1S BetaFPV Lava ii 320mah HV Lipo 
+#
+# INTENDED USE: Whoop Freestyle / Racing
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 4.5.1
+#   Target:     STM32F411 (S411) | CRAZYBEEF4SX1280 | Mfr: HAMO
+#   Date:       August 1, 2024
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   FC is the HDZero AIO5. Betaflight identifies the underlying board
+#   as the CrazyBee F4 SX1280 (manufacturer: HAMO / Happymodel).
+#
+#   SECURITY NOTE: The expresslrs_uid value has been intentionally
+#   REMOVED from this public config. That value is derived from your
+#   personal ELRS binding passphrase and must be kept private.
+#   Set your own binding phrase via the ExpressLRS tab in Betaflight
+#   Configurator or via the ELRS Lua script.
+#
+#   IMPORTANT — Motor output reordering:
+#   set motor_output_reordering = 0,3,2,1,4,5,6,7 is specific to
+#   how the motors are wired on this build. Verify your motor order
+#   with props off before flying.
+#
+#   IMPORTANT — Board alignment:
+#   FC is mounted inverted (roll 180) and rotated 45 degrees (yaw).
+#   Adjust if your mounting differs.
+#
+#   NOTE — Motor shaft size:
+#   HappyModel RS0802 motors use a 1.5mm shaft. Ensure replacement
+#   props are compatible with this shaft diameter.
+#
+#   NOTE — Dual IMU:
+#   This board has two gyros. The gyro_2 settings below are
+#   board-specific hardware configuration; do not adjust them.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration          -> Run Accelerometer Calibration in BF Configurator
+#     - align_board_roll/yaw     -> Match your actual FC mounting orientation
+#     - motor_output_reordering  -> Verify motor order props-off
+#     - expresslrs_uid           -> Set via ELRS Configurator with YOUR passphrase
+#
+# ============================================================
+
+defaults nosave
+
+# version
+# Betaflight / STM32F411 (S411) 4.5.1 Aug  1 2024 / 13:38:51 (77d01ba3b) MSP API: 1.46
+# config rev: ad0057e
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name CRAZYBEEF4SX1280
+manufacturer_id HAMO
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: M7FHD
+
+# resources
+resource MOTOR 1 B08
+resource MOTOR 2 B10
+resource MOTOR 3 B06
+resource MOTOR 4 B07
+
+# feature
+feature OSD
+
+# serial
+serial 0 131073 115200 57600 0 115200
+
+# beeper
+beeper -ARMED
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 1 900 1300 0 0
+aux 1 13 3 1700 2100 0 0
+aux 2 35 0 1700 2100 0 0
+aux 3 39 0 900 900 0 13
+
+# adjrange
+adjrange 0 0 2 900 1300 12 2 0 0
+adjrange 1 0 2 1300 1700 12 2 0 0
+adjrange 2 0 2 1700 2100 12 2 0 0
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM  5705    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
+vtxtable powerlevels 3
+vtxtable powervalues 14 23 0
+vtxtable powerlabels 25 200 0
+
+# master
+set gyro_lpf1_static_hz = 0
+set gyro_lpf2_type = PT2
+set gyro_lpf2_static_hz = 0
+set dyn_notch_count = 2
+set dyn_notch_q = 500
+set dyn_notch_min_hz = 120
+set dyn_notch_max_hz = 500
+set acc_lpf_hz = 10
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = 101,196,48,1
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
+# !! Adjust to match your actual camera physical tilt angle.
+set fpv_mix_degrees = 35
+set dshot_idle_value = 600
+set dshot_burst = OFF
+set dshot_bidir = ON
+set dshot_bitbang = AUTO
+set motor_poles = 12
+# !! AIRCRAFT-SPECIFIC: Motor output reordering is specific to wiring on this build.
+# !! Verify motor spin directions and order with props off before flying.
+set motor_output_reordering = 0,3,2,1,4,5,6,7
+set failsafe_delay = 4
+set failsafe_recovery_delay = 20
+# !! AIRCRAFT-SPECIFIC: FC is mounted inverted (roll 180) and rotated 45 degrees (yaw).
+# !! Adjust to match your actual FC mounting orientation.
+set align_board_roll = 180
+set align_board_yaw = 45
+set bat_capacity = 450
+set vbat_max_cell_voltage = 440
+set vbat_min_cell_voltage = 320
+set vbat_warning_cell_voltage = 330
+set yaw_motors_reversed = ON
+set small_angle = 180
+set deadband = 1
+set yaw_deadband = 1
+set pid_process_denom = 2
+set osd_warn_bitmask = 8191
+set osd_vbat_pos = 45
+set osd_rssi_pos = 33
+set osd_link_quality_pos = 15884
+set osd_link_tx_power_pos = 234
+set osd_rssi_dbm_pos = 1315
+set osd_rsnr_pos = 234
+set osd_tim_1_pos = 1354
+set osd_tim_2_pos = 15916
+set osd_remaining_time_estimate_pos = 234
+set osd_flymode_pos = 1514
+set osd_anti_gravity_pos = 234
+set osd_g_force_pos = 65
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 32239
+set osd_crosshairs_pos = 205
+set osd_ah_sbar_pos = 206
+set osd_ah_pos = 78
+set osd_current_pos = 480
+set osd_mah_drawn_pos = 449
+set osd_wh_drawn_pos = 234
+set osd_motor_diag_pos = 234
+set osd_craft_name_pos = 14900
+set osd_pilot_name_pos = 234
+set osd_gps_speed_pos = 234
+set osd_gps_lon_pos = 234
+set osd_gps_lat_pos = 234
+set osd_gps_sats_pos = 234
+set osd_home_dir_pos = 234
+set osd_home_dist_pos = 234
+set osd_flight_dist_pos = 234
+set osd_compass_bar_pos = 234
+set osd_altitude_pos = 234
+set osd_pid_roll_pos = 234
+set osd_pid_pitch_pos = 234
+set osd_pid_yaw_pos = 234
+set osd_debug_pos = 234
+set osd_power_pos = 234
+set osd_pidrate_profile_pos = 234
+set osd_warnings_pos = 329
+set osd_avg_cell_voltage_pos = 14880
+set osd_pit_ang_pos = 234
+set osd_rol_ang_pos = 234
+set osd_battery_usage_pos = 234
+set osd_disarmed_pos = 469
+set osd_nheading_pos = 234
+set osd_up_down_reference_pos = 205
+set osd_ready_mode_pos = 234
+set osd_esc_tmp_pos = 234
+set osd_esc_rpm_pos = 161
+set osd_esc_rpm_freq_pos = 234
+set osd_rtc_date_time_pos = 234
+set osd_adjustment_range_pos = 234
+set osd_flip_arrow_pos = 234
+set osd_core_temp_pos = 280
+set osd_log_status_pos = 234
+set osd_stick_overlay_left_pos = 234
+set osd_stick_overlay_right_pos = 234
+set osd_rate_profile_name_pos = 14848
+set osd_pid_profile_name_pos = 234
+set osd_profile_name_pos = 234
+set osd_rcchannels_pos = 234
+set osd_camera_frame_pos = 35
+set osd_efficiency_pos = 234
+set osd_total_flights_pos = 234
+set osd_aux_pos = 234
+set osd_sys_goggle_voltage_pos = 234
+set osd_sys_vtx_voltage_pos = 234
+set osd_sys_bitrate_pos = 234
+set osd_sys_delay_pos = 234
+set osd_sys_distance_pos = 234
+set osd_sys_lq_pos = 234
+set osd_sys_goggle_dvr_pos = 234
+set osd_sys_vtx_dvr_pos = 234
+set osd_sys_warnings_pos = 234
+set osd_sys_vtx_temp_pos = 234
+set osd_sys_fan_speed_pos = 234
+set osd_stat_bitmask = 133092
+set osd_canvas_width = 50
+set osd_canvas_height = 18
+set debug_mode = RX_EXPRESSLRS_SPI
+set vtx_band = 5
+set vtx_channel = 8
+set vtx_power = 2
+set vtx_freq = 5917
+set displayport_msp_fonts = 0,0,0,0
+set gyro_1_sensor_align = DEFAULT
+set gyro_1_align_yaw = 0
+set gyro_2_bustype = SPI
+set gyro_2_sensor_align = CW0
+# !! SECURITY: expresslrs_uid has been removed. Set your own binding phrase via
+# !! the ExpressLRS tab in Betaflight Configurator or the ELRS Lua script.
+set expresslrs_rate_index = 1
+set expresslrs_model_id = 0
+set rpm_filter_weights = 100,20,100
+set rpm_filter_fade_range_hz = 100
+set craft_name = M7FHD
+
+profile 0
+
+# profile 0
+set dterm_lpf1_dyn_expo = 7
+set vbat_sag_compensation = 100
+set iterm_relax_cutoff = 30
+set iterm_limit = 500
+set pidsum_limit_yaw = 1000
+set p_pitch = 50
+set i_pitch = 68
+set d_pitch = 30
+set f_pitch = 101
+set p_roll = 53
+set i_roll = 72
+set d_roll = 31
+set f_roll = 108
+set p_yaw = 53
+set i_yaw = 72
+set f_yaw = 108
+set d_min_roll = 31
+set d_min_pitch = 30
+set thrust_linear = 20
+set simplified_master_multiplier = 155
+set simplified_i_gain = 75
+set simplified_d_gain = 105
+set simplified_pi_gain = 120
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+set simplified_pitch_d_gain = 85
+set simplified_pitch_pi_gain = 90
+set ez_landing_limit = 5
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+# rateprofile 3
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save

@@ -1,0 +1,291 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Carnage V2 3" (Modified)
+#
+# HARDWARE:
+#   Frame:      CNC Drones Carnage V2 3"
+#   FC/ESC:     GEPRC TAKER G4 35A AIO
+#   Motors:     T-Hobby F1404 4600KV
+#   Props:      Gemfan 3020
+#   Camera:     HDZero Micro V3
+#   VTX:        HDZero Freestyle V2
+#   Antenna:    GEPRC Piano RHCP
+#   RX:         Nano ELRS (UART2)
+#   Battery:    4S: R-Line 650mah Lipo 
+#
+# INTENDED USE: Freestyle
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 4.5.3
+#   Target:     STM32G47X (SG47) | TAKERG4AIO | Mfr: GEPR
+#   Date:       June 19, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   This build uses a GEPRC TAKER G4 AIO which includes a rangefinder
+#   port (RANGEFINDER feature enabled). The FC is mounted rotated
+#   90 degrees in the frame — verify your own orientation.
+#
+#   vbat_max_cell_voltage = 450 (4.50V) is configured for Li-HV batteries.
+#   If using standard LiPo, change this to 420 (4.20V).
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration   -> Run Accelerometer Calibration in BF Configurator
+#     - align_board_yaw   -> 90 degrees for this build — adjust to match yours
+#     - vbat_max_cell_voltage -> 450 = Li-HV; change to 420 for standard LiPo
+#
+# ============================================================
+
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32G47X (SG47) 4.5.3 Apr 29 2026 / 19:43:54 (0e533ba76) MSP API: 1.46
+# config rev: a6a188c
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name TAKERG4AIO
+manufacturer_id GEPR
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: CARNAGE3
+
+# feature
+feature RANGEFINDER
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 0 131073 115200 57600 0 115200
+serial 1 64 115200 57600 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 1 900 1300 0 0
+aux 1 13 3 1700 2100 0 0
+aux 2 35 0 1700 2100 0 0
+aux 3 39 0 900 900 0 13
+
+# adjrange
+adjrange 0 0 2 900 1300 12 2 0 0
+adjrange 1 0 2 1300 1700 12 2 0 0
+adjrange 2 0 2 1700 2100 12 2 0 0
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM  5705    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
+vtxtable powerlevels 5
+vtxtable powervalues 14 23 27 30 0
+vtxtable powerlabels 25 200 500 MAX 0
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = 12,-47,12,1
+set mag_hardware = NONE
+set baro_hardware = NONE
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle for HD DVR horizon.
+# !! Adjust to match your actual camera physical tilt if you change the camera mount.
+set fpv_mix_degrees = 35
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT300
+set motor_poles = 12
+# !! AIRCRAFT-SPECIFIC: FC is mounted rotated 90 degrees (yaw) in this frame.
+# !! Adjust to match your actual FC orientation if different.
+set align_board_yaw = 90
+set bat_capacity = 680
+# !! NOTE: 450 = 4.50V per cell — this is configured for Li-HV batteries.
+# !! Change to 420 if using standard LiPo cells.
+set vbat_max_cell_voltage = 450
+set vbat_warning_cell_voltage = 345
+set yaw_motors_reversed = ON
+set small_angle = 180
+set osd_link_quality_pos = 15884
+set osd_tim_2_pos = 15916
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 32239
+set osd_craft_name_pos = 14901
+set osd_avg_cell_voltage_pos = 14880
+set osd_rate_profile_name_pos = 14848
+set osd_canvas_width = 50
+set osd_canvas_height = 18
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 4
+set vtx_freq = 5658
+set craft_name = CARNAGE3
+
+profile 0
+
+# profile 0
+set throttle_boost = 0
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set motor_output_limit = 90
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+profile 1
+
+# profile 1
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+profile 2
+
+# profile 2
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+profile 3
+
+# profile 3
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save

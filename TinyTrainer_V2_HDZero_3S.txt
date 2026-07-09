@@ -1,0 +1,227 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Tiny Trainer V2 3" (Modified)
+#
+# HARDWARE:
+#   Frame:      Tiny Trainer V2 3"
+#   FC/AIO:     Foxeer F745 V4 AIO
+#   Motors:     T-Hobby F1404 4600KV
+#   Props:      Gemfan 3020
+#   Camera:     HDZero Micro V3
+#   VTX:        HDZero Whoop V2
+#   Antenna:    Foxeer Lightweight RHCP Lollipop
+#   RX:         Nano ELRS (UART4)
+#   Battery:    3S BetaFPV 680mah HV Lipo 
+# INTENDED USE: Racing / Freestyle 
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 4.5.3
+#   Target:     STM32F745 (S745) | FOXEERF745V4_AIO | Mfr: FOXE
+#   Date:       June 19, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   Same motor/prop combination as the CARNAGE 3" (T-Hobby F1404 4600KV
+#   + Gemfan 3020) but on a different frame and FC. PIDs should be a
+#   close starting point for either build.
+#
+#   Barometer is disabled (baro_hardware = NONE) — standard for freestyle.
+#   LED strip is enabled on the Foxeer F745 V4 AIO.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration  -> Run Accelerometer Calibration in BF Configurator
+#     - fpv_mix_degrees  -> Adjust to match your camera physical tilt angle
+#
+# ============================================================
+
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32F745 (S745) 4.5.3 May 29 2026 / 22:36:16 (0e533ba76) MSP API: 1.46
+# config rev: ed0d806
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name FOXEERF745V4_AIO
+manufacturer_id FOXE
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: TT3
+
+# feature
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 0 131073 115200 57600 0 115200
+serial 3 64 115200 57600 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 1 900 1300 0 0
+aux 1 13 3 1700 2100 0 0
+aux 2 35 0 1700 2100 0 0
+aux 3 39 0 900 900 0 13
+
+# adjrange
+adjrange 0 0 2 900 1300 12 2 0 0
+adjrange 1 0 2 1300 1700 12 2 0 0
+adjrange 2 0 2 1700 2100 12 2 0 0
+adjrange 3 0 4 1800 2100 29 4 0 0
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM  5705    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
+vtxtable powerlevels 3
+vtxtable powervalues 14 23 0
+vtxtable powerlabels 25 200 0
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = -195,-22,-246,1
+set baro_hardware = NONE
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle for HD DVR horizon.
+# !! Adjust to match your actual camera physical tilt angle.
+set fpv_mix_degrees = 35
+set dshot_bidir = ON
+set bat_capacity = 680
+set vbat_max_cell_voltage = 440
+set vbat_warning_cell_voltage = 345
+set yaw_motors_reversed = ON
+set small_angle = 180
+set pid_process_denom = 2
+set osd_link_quality_pos = 15784
+set osd_tim_2_pos = 15816
+set osd_throttle_pos = 14725
+set osd_vtx_channel_pos = 32139
+set osd_craft_name_pos = 14838
+set osd_avg_cell_voltage_pos = 14789
+set osd_rate_profile_name_pos = 14757
+set osd_stat_bitmask = 1075839460
+set vtx_band = 5
+set vtx_channel = 8
+set vtx_power = 1
+set vtx_freq = 5917
+set displayport_msp_fonts = 0,0,0,0
+set craft_name = TT3
+
+profile 0
+
+# profile 0
+set throttle_boost = 0
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+# rateprofile 3
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+set motor_poles = 12
+save

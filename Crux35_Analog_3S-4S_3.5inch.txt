@@ -1,0 +1,227 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Crux35 3.5" (Modified)
+#
+# HARDWARE:
+#   Frame:      IFlight Crux35 (stock frame)
+#   FC:         T-Motor F7 AIO
+#   Motors:     Stock Crux35 motors
+#   Props:      Gemfan 3520
+#   Camera:     Baby Ratel 2 (analog)
+#   VTX:        TX800 (analog)
+#   Antenna:    Rush Cherry RHCP Lollipop
+#   RX:         Nano ELRS (UART4)
+#   Battery:    3S: BetaFPV 680mah HV Lipo, 4S: R-Line 650/850mah Lipos 
+#
+# INTENDED USE: Freestyle
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 4.5.5
+#   Target:     STM32F7X2 (S7X2) | TMOTORF7_AIO | Mfr: TMTR
+#   Date:       June 30, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   This build has been upgraded from the stock IFlight Crux35
+#   (CrazyBee F4 DX / HDZero) to the T-Motor F7 AIO FC with an
+#   analog video system (Baby Ratel 2 + TX800). The TX800 VTX
+#   is controlled via MSP serial on UART3.
+#
+#   The RANGEFINDER feature is enabled on this T-Motor F7 AIO
+#   board. No rangefinder sensor is required; it can be disabled.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration  -> Run Accelerometer Calibration in BF Configurator
+#     - fpv_mix_degrees  -> Adjust to match your actual camera tilt angle
+#
+# ============================================================
+
+defaults nosave
+
+# version
+# Betaflight / STM32F7X2 (S7X2) 4.5.5 Jun 30 2026 / 07:08:41 (norevision) MSP API: 1.46
+# config rev: 92c695a
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name TMOTORF7_AIO
+manufacturer_id TMTR
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: CRUX35
+
+# feature
+feature RANGEFINDER
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 2 8192 115200 57600 0 115200
+serial 3 64 115200 57600 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 1 900 1300 0 0
+aux 1 13 3 1700 2100 0 0
+aux 2 35 0 1700 2100 0 0
+aux 3 39 0 900 900 0 13
+
+# adjrange
+adjrange 0 0 2 900 1300 12 2 0 0
+adjrange 1 0 2 1300 1700 12 2 0 0
+adjrange 2 0 2 1700 2100 12 2 0 0
+
+# vtxtable
+vtxtable bands 5
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM  5865 5845 5825 5805 5785 5765 5745 5725
+vtxtable band 2 BOSCAM_B B CUSTOM  5733 5752 5771 5790 5809 5828 5847 5866
+vtxtable band 3 BOSCAM_E E CUSTOM  5705 5685 5665    0 5885 5905    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760 5780 5800 5820 5840 5860 5880
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable powerlevels 5
+vtxtable powervalues 25 200 400 600 800
+vtxtable powerlabels 25 200 400 600 800
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = -39,15,89,1
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
+# !! Adjust to match your actual camera physical tilt angle.
+set fpv_mix_degrees = 35
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT300
+set motor_poles = 12
+set align_board_yaw = 0
+set bat_capacity = 680
+set vbat_max_cell_voltage = 440
+set vbat_warning_cell_voltage = 345
+set yaw_motors_reversed = ON
+set small_angle = 180
+set pid_process_denom = 2
+set osd_link_quality_pos = 14712
+set osd_tim_2_pos = 14744
+set osd_throttle_pos = 14656
+set osd_vtx_channel_pos = 31067
+set osd_craft_name_pos = 14732
+set osd_warnings_pos = 14634
+set osd_avg_cell_voltage_pos = 14720
+set osd_rate_profile_name_pos = 14688
+set osd_stat_bitmask = 133988
+set osd_canvas_height = 13
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 4
+set vtx_freq = 5658
+set craft_name = CRUX35
+
+profile 0
+
+# profile 0
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 41
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+# rateprofile 3
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+# restore original rateprofile selection
+rateprofile 1
+
+# save configuration
+save

@@ -1,0 +1,217 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Carnage V2 3.5" (Modified)
+#
+# HARDWARE:
+#   Frame:      CNC Drones Carnage V2 3.5"
+#   FC/AIO:     JHEMCU F411 AIO
+#   Motors:     T-Hobby P1604 3800KV
+#   Props:      Gemfan 3520
+#   Camera:     HDZero Nano V3
+#   VTX:        HDZero Freestyle V2
+#   Antenna:    GEPRC Piano RHCP
+#   RX:         Nano ELRS (UART2)
+#   Battery:    3S: BetaFPV Lava ii 680mah HV Lipo / 4S: GNB 850mah HV Lipo 
+#
+# INTENDED USE: Freestyle
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 4.5.3
+#   Target:     STM32F411 (S411) | JHEF411 | Mfr: JHEF
+#   Date:       June 19, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   This is an HDZero digital build. The OSD canvas is set for
+#   HDZero (50x18). The VTX table reflects frequencies used
+#   with this pilot's goggle setup.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration  -> Run Accelerometer Calibration in BF Configurator
+#     - fpv_mix_degrees  -> Adjust to match your actual camera tilt angle
+#
+# ============================================================
+
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32F411 (S411) 4.5.3 Feb  2 2026 / 09:54:14 (0e533ba76) MSP API: 1.46
+# config rev: 103e330
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name JHEF411
+manufacturer_id JHEF
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: CARNAGE 3.5"
+
+# feature
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+
+# serial
+serial 0 131073 115200 57600 0 115200
+serial 1 64 115200 57600 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 1 900 1300 0 0
+aux 1 13 3 1700 2100 0 0
+aux 2 35 0 1700 2100 0 0
+aux 3 39 0 900 900 0 13
+
+# adjrange
+adjrange 0 0 2 900 1300 12 2 0 0
+adjrange 1 0 2 1300 1700 12 2 0 0
+adjrange 2 0 2 1700 2100 12 2 0 0
+adjrange 3 0 4 1800 2100 29 4 0 0
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM  5705    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
+vtxtable powerlevels 5
+vtxtable powervalues 14 23 27 30 0
+vtxtable powerlabels 25 200 500 MAX 0
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = 5,-63,42,1
+set baro_hardware = NONE
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle for HD DVR horizon.
+# !! Adjust to match your actual camera physical tilt if you change the camera mount.
+set fpv_mix_degrees = 25
+set dshot_bidir = ON
+set bat_capacity = 850
+set vbat_max_cell_voltage = 440
+set vbat_warning_cell_voltage = 345
+set yaw_motors_reversed = ON
+set small_angle = 180
+set pid_process_denom = 2
+set osd_link_quality_pos = 15884
+set osd_tim_2_pos = 15916
+set osd_throttle_pos = 14817
+set osd_vtx_channel_pos = 32239
+set osd_craft_name_pos = 14899
+set osd_warnings_pos = 14739
+set osd_avg_cell_voltage_pos = 14881
+set osd_rate_profile_name_pos = 14849
+set osd_canvas_width = 50
+set osd_canvas_height = 18
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 4
+set vtx_freq = 5658
+set displayport_msp_fonts = 0,0,0,0
+set craft_name = CARNAGE 3.5"
+
+profile 0
+
+# profile 0
+set p_pitch = 56
+set i_pitch = 106
+set d_pitch = 43
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 101
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 101
+set f_yaw = 118
+set d_min_roll = 36
+set d_min_pitch = 43
+set thrust_linear = 20
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 110
+set simplified_i_gain = 105
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 90
+set simplified_pitch_d_gain = 105
+set ez_landing_limit = 5
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save
