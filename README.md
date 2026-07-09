@@ -30,15 +30,15 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 
 | Config File | Aircraft Image | Pack Sizes | VTX | Style |
 |---|---|---|---|---|
-| [Airbula65_Analog_Race_1S.txt](Airbula65_Analog_Race_1S.txt) | [Air65 R Custom](images/Airbula65_Analog_Race_1S.png) | 1S Whoop | Analog | Racing backup / Indoor Freestyle |
+| [Airbula65_Analog_Race_1S.txt](Airbula65_Analog_Race_1S.txt) | [Airbula65 R](images/Airbula65_Analog_Race_1S.png) | 1S Whoop | Analog | Racing backup / Indoor Freestyle |
 | [BabyTurtle_Analog_1S_2inch.txt](BabyTurtle_Analog_1S_2inch.txt) | [Baby Turtle Custom 2"](images/BabyTurtle_Analog_1S_2inch.png) | 1S | Analog | Freestyle / Proximity |
 | [Carnage_HDZero_3S-4S_3.5inch.txt](Carnage_HDZero_3S-4S_3.5inch.txt) | [Carnage V2 3.5"](images/Carnage_HDZero_3S-4S_3.5inch.png) | 3S–4S | HDZero | Freestyle |
 | [Carnage_HDZero_4S_3inch.txt](Carnage_HDZero_4S_3inch.txt) | [Carnage V2 3"](images/Carnage_HDZero_4S_3inch.png) | 4S | HDZero | Freestyle |
-| [Crux35_Analog_3S-4S_3.5inch.txt](Crux35_Analog_3S-4S_3.5inch.txt) | [IFlight Crux35 3.5" (Modified)](images/Crux35_Analog_3S-4S_3.5inch.png) | 3S–4S | Analog | Freestyle |
+| [Crux35_Analog_3S-4S_3.5inch.txt](Crux35_Analog_3S-4S_3.5inch.txt) | [Crux35 3.5"](images/Crux35_Analog_3S-4S_3.5inch.png) | 3S–4S | Analog | Freestyle |
 | [Kayoumini_HDZero_2S_2.5inch.txt](Kayoumini_HDZero_2S_2.5inch.txt) | [Kayoumini 2.5"](images/Kayoumini_HDZero_2S_2.5inch.png) | 2S | HDZero | Freestyle / Yard Basher |
-| [Mobula6_HDZero_Race_1S.txt](Mobula6_HDZero_Race_1S.txt) | [BetaFPV Mobula6 HD Eco Race](images/Mobula6_HDZero_Race_1S.png) | 1S Whoop | HDZero | Whoop Racing |
-| [Mobula7_HDZero_1S.txt](Mobula7_HDZero_1S.txt) | [HappyModel Mobula7 HD](images/Mobula7_HDZero_1S.png) | 1S Whoop | HDZero | Whoop Freestyle / Racing |
-| [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | [HappyModel Mobula8 HD ECO](images/Mobula8_HDZero_2S_2inch.png) | 2S Whoop | HDZero | Whoop Freestyle |
+| [Mobula6_HDZero_Race_1S.txt](Mobula6_HDZero_Race_1S.txt) | [Mobula6 HD Eco Race](images/Mobula6_HDZero_Race_1S.png) | 1S Whoop | HDZero | Whoop Racing |
+| [Mobula7_HDZero_1S.txt](Mobula7_HDZero_1S.txt) | [Mobula7 HD](images/Mobula7_HDZero_1S.png) | 1S Whoop | HDZero | Whoop Freestyle / Racing |
+| [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | [Mobula8 HD ECO](images/Mobula8_HDZero_2S_2inch.png) | 2S Whoop | HDZero | Whoop Freestyle |
 | [TinyTrainer_V2_HDZero_3S.txt](TinyTrainer_V2_HDZero_3S.txt) | [Tiny Trainer V2 3"](images/TinyTrainer_V2_HDZero_3S.png) | 3S | HDZero | Racing / Freestyle |
 | [Toothgrinder_MAX_Analog_2S.txt](Toothgrinder_MAX_Analog_2S.txt) | [Toothgrinder 2.5"](images/Toothgrinder_MAX_Analog_2S.png) | 2S | Analog | Freestyle / Yard Basher |
 
