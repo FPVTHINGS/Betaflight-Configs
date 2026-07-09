@@ -1,6 +1,6 @@
 # Betaflight configs for various micros 
 
-If you found your way here, welcome to my collection of Betaflight configs for various FPV builds. Shared as community reference starting points to help save someone some time. These are real, well-flown configs — use them to bootstrap a similar build and save some time.
+If you found your way here, welcome to my collection of Betaflight configs for various FPV builds. Shared as community reference starting points to help save someone some time. These are real, well-flown configs — use them to bootstrap a similar build and save some config time.
 
 ## How to Use
 
