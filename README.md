@@ -30,17 +30,17 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 
 | File | Aircraft | Size | Video | Style |
 |---|---|---|---|---|
-| [Airbula65_Analog_Race_1S.txt](Airbula65_Analog_Race_1S.txt) | Air65 R Custom | 1S Whoop | Analog 5.8 | Racing backup / Indoor Freestyle |
-| [BabyTurtle_Analog_1S_2inch.txt](BabyTurtle_Analog_1S_2inch.txt) | Baby Turtle Custom 2" | 2" | Analog 5.8 | Freestyle / Indoor Proximity |
+| [Airbula65_Analog_Race_1S.txt](Airbula65_Analog_Race_1S.txt) | Air65 R Custom | 1S Whoop | Analog | Racing backup / Indoor Freestyle |
+| [BabyTurtle_Analog_1S_2inch.txt](BabyTurtle_Analog_1S_2inch.txt) | Baby Turtle Custom 2" | 2" | Analog | Freestyle / Indoor Proximity |
 | [Carnage_HDZero_3S-4S_3.5inch.txt](Carnage_HDZero_3S-4S_3.5inch.txt) | Carnage V2 3.5" | 3S–4S 3.5" | HDZero | Freestyle |
 | [Carnage_HDZero_4S_3inch.txt](Carnage_HDZero_4S_3inch.txt) | Carnage V2 3" | 4S 3" | HDZero | Freestyle |
-| [Crux35_Analog_3S-4S_3.5inch.txt](Crux35_Analog_3S-4S_3.5inch.txt) | IFlight Crux35 3.5" (Modified) | 3S–4S 3.5" | Analog 5.8 | Freestyle |
+| [Crux35_Analog_3S-4S_3.5inch.txt](Crux35_Analog_3S-4S_3.5inch.txt) | IFlight Crux35 3.5" (Modified) | 3S–4S 3.5" | Analog | Freestyle |
 | [Kayoumini_HDZero_2S_2.5inch.txt](Kayoumini_HDZero_2S_2.5inch.txt) | Kayoumini 2.5" | 2S 2.5" | HDZero | Freestyle / Yard Basher |
 | [Mobula6_HDZero_Race_1S.txt](Mobula6_HDZero_Race_1S.txt) | BetaFPV Mobula6 HD Eco Race | 1S Whoop | HDZero | Whoop Racing |
 | [Mobula7_HDZero_1S.txt](Mobula7_HDZero_1S.txt) | HappyModel Mobula7 HD | 1S Whoop | HDZero | Whoop Freestyle / Racing |
 | [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | HappyModel Mobula8 HD ECO | 2S 2" Whoop | HDZero | Whoop Freestyle |
 | [TinyTrainer_V2_HDZero_3S.txt](TinyTrainer_V2_HDZero_3S.txt) | Tiny Trainer V2 3" | 3S 3" | HDZero | Racing / Freestyle |
-| [Toothgrinder_MAX_Analog_2S.txt](Toothgrinder_MAX_Analog_2S.txt) | Toothgrinder 2.5" | 2S 2.5" | Analog 5.8 | Freestyle / Yard Basher |
+| [Toothgrinder_MAX_Analog_2S.txt](Toothgrinder_MAX_Analog_2S.txt) | Toothgrinder 2.5" | 2S 2.5" | Analog | Freestyle / Yard Basher |
 
 ---
 
