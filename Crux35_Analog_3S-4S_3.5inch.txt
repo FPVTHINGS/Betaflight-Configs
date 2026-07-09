@@ -5,7 +5,7 @@
 # BUILD: Crux35 3.5" (Modified)
 #
 # HARDWARE:
-#   Frame:      IFlight Crux35 (stock frame)
+#   Frame:      Crux35 (stock frame)
 #   FC:         T-Motor F7 AIO
 #   Motors:     Stock Crux35 motors
 #   Props:      Gemfan 3520
