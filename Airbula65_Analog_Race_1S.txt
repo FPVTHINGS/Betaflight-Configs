@@ -237,7 +237,7 @@ rateprofile 3
 battery_profile 0
 
 # battery_profile 0
-set bat_capacity = 580
+set bat_capacity = 320
 set vbat_max_cell_voltage = 440
 set vbat_warning_cell_voltage = 340
 
