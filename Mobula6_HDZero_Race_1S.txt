@@ -2,10 +2,10 @@
 # BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
 # ============================================================
 #
-# BUILD: BetaFPV Mobula6 HD Eco Race (BNF)
+# BUILD: Mobula6 HD Eco Race (BNF)
 #
 # HARDWARE:
-#   Frame:      BetaFPV Mobula6 HD (factory)
+#   Frame:      Mobula6 HD (factory)
 #   FC/AIO:     Happymodel CrazyBee F4 SX1280 (integrated ELRS SPI)
 #   ESC:        Integrated (AIO)
 #   Motors:     Factory Mobula6 HD motors
