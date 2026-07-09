@@ -1,6 +1,6 @@
-# FPV Drone Betaflight CLI Reference Configs
+# Betaflight configs for various micros 
 
-If you found your way here, welcome to my collection of Betaflight CLI configurations for various FPV builds. Shared as community reference starting points to help save someone some time. These are real, well-flown configs — use them to bootstrap a similar build and save some time.
+If you found your way here, welcome to my collection of Betaflight configs for various FPV builds. Shared as community reference starting points to help save someone some time. These are real, well-flown configs — use them to bootstrap a similar build and save some time.
 
 ## How to Use
 
@@ -55,4 +55,4 @@ If you found your way here, welcome to my collection of Betaflight CLI configura
 
 ## License / Usage
 
-These configs are shared freely for the FPV community. Tune responsibly — always verify settings for your specific hardware before flying.
+These configs are shared freely for the FPV community. Pay attention to notes in the configs, note the build differences, Tune responsibly — always verify settings for your specific hardware before flying.
