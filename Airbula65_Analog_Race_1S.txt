@@ -5,11 +5,11 @@
 # BUILD: Air65 R (Modified)
 #
 # HARDWARE:
-#   Frame:      BetaFPV Mobula6 2024 + Air65 II Canopy
-#   FC/AIO:     BetaFPV New Matrix 5in1 12A AIO (integrated ELRS)
+#   Frame:      Mobula6 2024 + Air65 II Canopy
+#   FC/AIO:     BetaFPV Matrix 5in1 12A AIO (integrated ELRS)
 #   Motors:     Happymodel 0702 28000KV
 #   Props:      HQProp Ultralite Tri-blade
-#   Camera:     BetaFPV Air Camera
+#   Camera:     BetaFPV 'Air' Camera
 #   VTX:        Integrated (5.8GHz analog)
 #   Antenna:    Stock 5.8 Antenna
 #   Battery:    1S BetaFPV Lava ii 320mah HV Lipo
