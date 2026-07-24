@@ -78,15 +78,18 @@ beacon RX_LOST
 beacon RX_SET
 
 # aux
-aux 0 0 1 900 1300 0 0
-aux 1 13 3 1700 2100 0 0
-aux 2 35 0 1700 2100 0 0
+aux 0 0 6 1700 2100 0 0
+aux 1 13 0 1700 2100 0 0
+aux 2 35 4 1700 2100 0 0
 aux 3 39 0 900 900 0 13
 
 # adjrange
-adjrange 0 0 2 900 1300 12 2 0 0
-adjrange 1 0 2 1300 1700 12 2 0 0
-adjrange 2 0 2 1700 2100 12 2 0 0
+adjrange 0 0 1 900 1300 12 1 0 0
+adjrange 1 0 1 1300 1700 12 1 0 0
+adjrange 2 0 1 1700 2100 12 1 0 0
+adjrange 3 0 3 900 1300 29 3 0 0
+adjrange 4 0 3 1300 1700 29 3 0 0
+adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -125,13 +128,18 @@ set vbat_max_cell_voltage = 450
 set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
 set small_angle = 180
-set osd_link_quality_pos = 15884
-set osd_tim_2_pos = 15916
-set osd_throttle_pos = 14816
-set osd_vtx_channel_pos = 32239
-set osd_craft_name_pos = 14901
+set osd_link_quality_pos = 11788
+set osd_tim_2_pos = 11820
+set osd_throttle_pos = 10720
+set osd_vtx_channel_pos = 28143
+set osd_current_pos = 8256
+set osd_craft_name_pos = 10805
 set osd_avg_cell_voltage_pos = 14880
-set osd_rate_profile_name_pos = 14848
+set osd_ready_mode_pos = 10550
+set osd_esc_tmp_pos = 8289
+set osd_esc_rpm_pos = 8321
+set osd_esc_rpm_freq_pos = 9292
+set osd_rate_profile_name_pos = 10752
 set osd_canvas_width = 50
 set osd_canvas_height = 18
 set vtx_band = 5

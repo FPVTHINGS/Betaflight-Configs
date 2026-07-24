@@ -82,15 +82,18 @@ led 2 10,8::CO:13
 led 3 11,8::CO:13
 
 # aux
-aux 0 0 1 900 1300 0 0
-aux 1 13 3 1700 2100 0 0
-aux 2 35 0 1700 2100 0 0
+aux 0 0 6 1700 2100 0 0
+aux 1 13 0 1700 2100 0 0
+aux 2 35 4 1700 2100 0 0
 aux 3 39 0 900 900 0 13
 
 # adjrange
-adjrange 0 0 2 900 1300 12 2 0 0
-adjrange 1 0 2 1300 1700 12 2 0 0
-adjrange 2 0 2 1700 2100 12 2 0 0
+adjrange 0 0 1 900 1300 12 1 0 0
+adjrange 1 0 1 1300 1700 12 1 0 0
+adjrange 2 0 1 1700 2100 12 1 0 0
+adjrange 3 0 3 900 1300 29 3 0 0
+adjrange 4 0 3 1300 1700 29 3 0 0
+adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 5
@@ -130,15 +133,15 @@ set small_angle = 180
 set pid_process_denom = 2
 set simplified_gyro_filter_multiplier = 130
 set osd_vbat_pos = 332
-set osd_link_quality_pos = 14712
-set osd_tim_2_pos = 14744
-set osd_throttle_pos = 14656
-set osd_vtx_channel_pos = 31067
+set osd_link_quality_pos = 10616
+set osd_tim_2_pos = 10648
+set osd_throttle_pos = 10560
+set osd_vtx_channel_pos = 26971
 set osd_current_pos = 395
-set osd_craft_name_pos = 14730
+set osd_craft_name_pos = 10635
 set osd_warnings_pos = 14601
 set osd_avg_cell_voltage_pos = 14720
-set osd_rate_profile_name_pos = 14688
+set osd_rate_profile_name_pos = 10592
 set osd_displayport_device = AUTO
 set osd_canvas_width = 30
 set osd_canvas_height = 13
