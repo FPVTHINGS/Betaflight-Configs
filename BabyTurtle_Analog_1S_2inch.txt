@@ -36,6 +36,10 @@
 #     - align_board_yaw  -> Adjust if your FC is mounted at a different angle
 #     - vbat_scale       -> Verify against a multimeter reading on your pack
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave

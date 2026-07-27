@@ -60,6 +60,10 @@
 #     - motor_output_reordering  -> Verify motor order props-off
 #     - expresslrs_uid           -> Set via ELRS Configurator with YOUR passphrase
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave

@@ -39,6 +39,10 @@
 #     - acc_calibration  -> Run Accelerometer Calibration in BF Configurator
 #     - fpv_mix_degrees  -> Adjust to match your camera physical tilt angle
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave

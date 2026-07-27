@@ -40,6 +40,10 @@
 #     - align_board_yaw   -> 90 degrees for this build — adjust to match yours
 #     - vbat_max_cell_voltage -> 450 = Li-HV; change to 420 for standard LiPo
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave

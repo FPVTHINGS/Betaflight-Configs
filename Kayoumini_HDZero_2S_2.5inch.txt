@@ -44,6 +44,10 @@
 #     - gyro_1_align_yaw   -> 1800 = 180.0 degrees software alignment
 #     - resource MOTOR 1-4 -> Confirm pin mapping for your board revision
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave

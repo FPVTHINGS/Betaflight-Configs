@@ -54,6 +54,10 @@
 #     - motor_output_reordering  -> Verify motor order props-off
 #     - vbat_max_cell_voltage    -> 440 = HV LiPo; change to 420 for standard LiPo
 #
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
 # ============================================================
 
 defaults nosave
