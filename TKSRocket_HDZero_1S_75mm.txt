@@ -134,15 +134,15 @@ vtxtable powervalues 14 23 0
 vtxtable powerlabels 25 200 0
 
 # master
-set dyn_notch_count = 1
-set dyn_notch_q = 500
+set dyn_notch_count = 2
+set dyn_notch_q = 400
 # !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
 # !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
 set acc_calibration = -35,-122,88,1
 # !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
 # !! Adjust to match your actual camera physical tilt angle.
 set fpv_mix_degrees = 35
-set dshot_idle_value = 600
+set dshot_idle_value = 1100
 set dshot_burst = OFF
 set dshot_bidir = ON
 set dshot_bitbang = AUTO
@@ -158,8 +158,8 @@ set align_board_roll = 180
 set align_board_yaw = 45
 set bat_capacity = 480
 set vbat_max_cell_voltage = 440
-set vbat_min_cell_voltage = 320
-set vbat_warning_cell_voltage = 345
+set vbat_min_cell_voltage = 330
+set vbat_warning_cell_voltage = 340
 set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
@@ -265,6 +265,7 @@ set craft_name = TKS Rocket Eco
 profile 0
 
 # profile 0
+set throttle_boost = 7
 set p_pitch = 54
 set i_pitch = 97
 set d_pitch = 41
@@ -279,11 +280,13 @@ set f_yaw = 118
 set d_min_roll = 36
 set d_min_pitch = 41
 set thrust_linear = 20
-set dyn_idle_min_rpm = 30
+set tpa_rate = 65
+set tpa_breakpoint = 1250
+set dyn_idle_min_rpm = 35
 set simplified_master_multiplier = 110
 set simplified_d_gain = 110
 set simplified_pi_gain = 105
-set simplified_dmax_gain = 0
+set simplified_dmax_gain = 100
 set simplified_feedforward_gain = 90
 
 profile 1
