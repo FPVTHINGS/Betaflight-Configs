@@ -135,12 +135,12 @@ set motor_output_reordering = 2,0,3,1,4,5,6,7
 # !! Adjust to match your actual FC mounting orientation.
 set align_board_roll = 180
 set align_board_yaw = 45
-set bat_capacity = 480
+set bat_capacity = 450
 set vbat_max_cell_voltage = 440
 set vbat_warning_cell_voltage = 340
 set yaw_motors_reversed = ON
 set small_angle = 180
-set pid_process_denom = 2
+set pid_process_denom = 1
 set osd_link_quality_pos = 11788
 set osd_tim_2_pos = 11820
 set osd_throttle_pos = 10720
@@ -165,13 +165,13 @@ set craft_name = M8 eco
 profile 0
 
 # profile 0
-set throttle_boost = 7
+set throttle_boost = 5
 set p_pitch = 56
-set i_pitch = 101
+set i_pitch = 105
 set d_pitch = 41
 set f_pitch = 123
 set p_roll = 54
-set i_roll = 96
+set i_roll = 100
 set d_roll = 36
 set f_roll = 118
 set p_yaw = 54
@@ -180,12 +180,12 @@ set f_yaw = 118
 set d_min_roll = 36
 set d_min_pitch = 41
 set thrust_linear = 20
-set dyn_idle_min_rpm = 35
+set dyn_idle_min_rpm = 40
 set simplified_master_multiplier = 110
 set simplified_d_gain = 110
 set simplified_pi_gain = 110
 set simplified_dmax_gain = 100
-set simplified_feedforward_gain = 90
+set simplified_feedforward_gain = 110
 
 profile 1
 
