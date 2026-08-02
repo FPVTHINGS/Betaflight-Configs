@@ -6,21 +6,21 @@
 #
 # HARDWARE:
 #   Frame:      CNC Drones Carnage V2 3.5"
-#   FC/AIO:     JHEMCU F411 AIO
+#   FC/AIO:     GEPRC Taker G4 45A AIO
 #   Motors:     T-Hobby P1604 3800KV
 #   Props:      Gemfan 3520
 #   Camera:     HDZero Nano V3
 #   VTX:        HDZero Freestyle V2
 #   Antenna:    GEPRC Piano RHCP
-#   RX:         Nano ELRS (UART2)
-#   Battery:    3S: BetaFPV Lava ii 680mah HV Lipo / 4S: GNB 850mah HV Lipo 
+#   RX:         Nano ELRS
+#   Battery:    4S: GNB 850mah HV, 3S: BetaFPV Lava ii 680mah HV
 #
 # INTENDED USE: Freestyle
 #
 # BETAFLIGHT:
 #   Version:    Betaflight 4.5.3
-#   Target:     STM32F411 (S411) | JHEF411 | Mfr: JHEF
-#   Date:       June 19, 2026
+#   Target:     STM32G47X (SG47) | TAKERG4AIO | Mfr: GEPR
+#   Date:       Jul 26 2026
 #
 # NOTES:
 #   This is a community reference CLI shared as a starting point
@@ -77,16 +77,18 @@ beacon RX_LOST
 beacon RX_SET
 
 # aux
-aux 0 0 1 900 1300 0 0
-aux 1 13 3 1700 2100 0 0
-aux 2 35 0 1700 2100 0 0
+aux 0 0 6 1700 2100 0 0
+aux 1 13 0 1700 2100 0 0
+aux 2 35 4 1700 2100 0 0
 aux 3 39 0 900 900 0 13
 
 # adjrange
-adjrange 0 0 2 900 1300 12 2 0 0
-adjrange 1 0 2 1300 1700 12 2 0 0
-adjrange 2 0 2 1700 2100 12 2 0 0
-adjrange 3 0 4 1800 2100 29 4 0 0
+adjrange 0 0 1 900 1300 12 1 0 0
+adjrange 1 0 1 1300 1700 12 1 0 0
+adjrange 2 0 1 1700 2100 12 1 0 0
+adjrange 3 0 3 900 1300 29 4 0 0
+adjrange 4 0 3 1300 1700 29 3 0 0
+adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -106,34 +108,35 @@ set dyn_notch_count = 1
 set dyn_notch_q = 500
 # !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
 # !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
-set acc_calibration = 5,-63,42,1
+set acc_calibration = 45,-38,15,1
+set mag_hardware = NONE
 set baro_hardware = NONE
 # !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle for HD DVR horizon.
 # !! Adjust to match your actual camera physical tilt if you change the camera mount.
-set fpv_mix_degrees = 25
+set fpv_mix_degrees = 35
 set dshot_bidir = ON
-set bat_capacity = 850
+set motor_pwm_protocol = DSHOT300
+set align_board_yaw = 90
+set bat_capacity = 750
 set vbat_max_cell_voltage = 440
-set vbat_warning_cell_voltage = 345
+set vbat_warning_cell_voltage = 340
 set yaw_motors_reversed = ON
 set small_angle = 180
-set pid_process_denom = 2
-set osd_link_quality_pos = 15884
+set osd_link_quality_pos = 11788
 set osd_tim_2_pos = 15916
-set osd_throttle_pos = 14817
-set osd_vtx_channel_pos = 32239
-set osd_craft_name_pos = 14899
-set osd_warnings_pos = 14739
-set osd_avg_cell_voltage_pos = 14881
-set osd_rate_profile_name_pos = 14849
+set osd_throttle_pos = 10720
+set osd_vtx_channel_pos = 28143
+set osd_craft_name_pos = 10804
+set osd_warnings_pos = 14708
+set osd_avg_cell_voltage_pos = 14880
+set osd_rate_profile_name_pos = 10752
 set osd_canvas_width = 50
 set osd_canvas_height = 18
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 4
+set vtx_power = 2
 set vtx_freq = 5658
-set displayport_msp_fonts = 0,0,0,0
-set craft_name = CARNAGE 3.5"
+set craft_name = CARNAGE 3.5
 
 profile 0
 
