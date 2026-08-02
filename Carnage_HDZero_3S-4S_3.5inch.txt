@@ -47,8 +47,8 @@ defaults nosave
 # diff all
 
 # version
-# Betaflight / STM32F411 (S411) 4.5.3 Feb  2 2026 / 09:54:14 (0e533ba76) MSP API: 1.46
-# config rev: 103e330
+# Betaflight / STM32G47X (SG47) 4.5.3 Jul 26 2026 / 15:46:16 (norevision) MSP API: 1.46
+# config rev: 92c695a
 
 # start the command batch
 batch start
@@ -56,16 +56,15 @@ batch start
 # reset configuration to default settings
 defaults nosave
 
-board_name JHEF411
-manufacturer_id JHEF
+board_name TAKERG4AIO
+manufacturer_id GEPR
 # mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
 signature
 
-# name: CARNAGE 3.5"
+# name: CARNAGE 3.5
 
 # feature
 feature TELEMETRY
-feature LED_STRIP
 feature OSD
 
 # serial
