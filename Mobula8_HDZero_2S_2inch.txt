@@ -9,7 +9,7 @@
 #   FC/AIO:     HDZero AIO 15A (integrated ELRS SPI)
 #   Motors:     BetaFPV 1103 11000KV
 #   Props:      Gemfan 2023 tri-blade
-#   Camera:     HDZero Eco
+#   Camera:     HDZero Lux
 #   VTX:        Integrated HDZero
 #   Antenna:    Stock whip antenna
 #   RX:         Integrated ELRS SPI (on-board, no external RX required)
