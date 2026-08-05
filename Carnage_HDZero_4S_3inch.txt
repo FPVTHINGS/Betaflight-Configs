@@ -7,8 +7,8 @@
 # HARDWARE:
 #   Frame:      CNC Drones Carnage V2 3"
 #   FC/ESC:     GEPRC TAKER G4 35A AIO
-#   Motors:     T-Hobby F1404 4600KV
-#   Props:      Gemfan 3020
+#   Motors:     T-Hobby P1604 3800KV
+#   Props:      HQProp 3x3x3
 #   Camera:     HDZero Micro V3
 #   VTX:        HDZero Freestyle V2
 #   Antenna:    GEPRC Piano RHCP
@@ -20,7 +20,7 @@
 # BETAFLIGHT:
 #   Version:    Betaflight 4.5.3
 #   Target:     STM32G47X (SG47) | TAKERG4AIO | Mfr: GEPR
-#   Date:       June 19, 2026
+#   Date:       August 4, 2026
 #
 # NOTES:
 #   This is a community reference CLI shared as a starting point
@@ -121,7 +121,6 @@ set baro_hardware = NONE
 set fpv_mix_degrees = 35
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
-set motor_poles = 12
 # !! AIRCRAFT-SPECIFIC: FC is mounted rotated 90 degrees (yaw) in this frame.
 # !! Adjust to match your actual FC orientation if different.
 set align_board_yaw = 90
