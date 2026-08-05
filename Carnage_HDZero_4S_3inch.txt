@@ -13,9 +13,11 @@
 #   VTX:        HDZero Freestyle V2
 #   Antenna:    GEPRC Piano RHCP
 #   RX:         Nano ELRS (UART2)
-#   Battery:    4S: R-Line 650mah Lipo 
+#   Battery:    4S: R-Line 650mah Lipo
+#   Battery:    3S: Lava II 680mah LiHv
 #
 # INTENDED USE: Freestyle
+# NOTE: This build flies amazing on both 3S and 4s. Only part above I will probably change soonish is antenna to truerc. 
 #
 # BETAFLIGHT:
 #   Version:    Betaflight 4.5.3
