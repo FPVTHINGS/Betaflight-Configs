@@ -42,6 +42,7 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 | [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | [Mobula8 HD ECO](images/Mobula8_HDZero_2S_2inch.png) | 2S Whoop | HDZero | Whoop Freestyle |
 | [TinyTrainer_V2_HDZero_3S.txt](TinyTrainer_V2_HDZero_3S.txt) | [Tiny Trainer V2 3"](images/TinyTrainer_V2_HDZero_3S.png) | 3S | HDZero | Racing / Freestyle |
 | [TKSRocket_HDZero_1S_75mm.txt](TKSRocket_HDZero_1S_75mm.txt) | [TKS Rocket 75mm](images/TKSRocket_HDZero_1S_75mm.jpeg) | 1S Whoop | HDZero | Whoop Racing |
+| [Toothgrinder_1.8_HDZero_2S.txt](Toothgrinder_1.8_HDZero_2S.txt) | [Toothgrinder 1.8"](images/Toothgrinder_1.8_HDZero_2S.png) | 2S | HDZero | Freestyle / Yard Basher |
 | [Toothgrinder_MAX_Analog_2S.txt](Toothgrinder_MAX_Analog_2S.txt) | [Toothgrinder 2.5"](images/Toothgrinder_MAX_Analog_2S.png) | 2S | Analog | Freestyle / Yard Basher |
 
 ---
