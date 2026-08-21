@@ -49,7 +49,7 @@
 #   Required firmware: AM32 v2.19 or higher
 #
 #   In the Motor section, keep all defaults except:
-#     - Motor KV:            1340  (closest available to actual 1350KV, 'the round up rule')
+#     - Motor KV:            1340  (closest available to actual 1350KV)
 #     - Auto Timing Advance: Enabled (check box)
 #     - PWM Type:            By RPM
 #
