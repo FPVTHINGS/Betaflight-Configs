@@ -129,6 +129,7 @@ set vbat_min_cell_voltage = 335
 set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
 set small_angle = 180
+set crash_flip_expo = 30
 set pid_process_denom = 2
 set osd_vbat_pos = 491
 set osd_rssi_pos = 491

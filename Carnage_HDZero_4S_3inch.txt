@@ -133,6 +133,7 @@ set vbat_max_cell_voltage = 450
 set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
 set small_angle = 180
+set crash_flip_expo = 30
 set osd_link_quality_pos = 11788
 set osd_tim_2_pos = 11820
 set osd_throttle_pos = 10720
