@@ -86,27 +86,29 @@ signature
 feature TELEMETRY
 feature LED_STRIP
 feature OSD
-feature ESC_SENSOR
 
 # serial
+serial UART3 0 115200 57600 0 115200
 serial UART4 131073 115200 57600 0 115200
 
+# resource
+# Default LED_STRIP pad B10 burned out; remapped to R3 (PB11, TIM2_CH4)
+resource LED_STRIP 1 B11
+resource SERIAL_RX 3 NONE
+resource SERIAL_TX 2 NONE
+resource SERIAL_TX 5 NONE
+
+# beacon
+beacon RX_LOST
+
 # led
-led 0 0,0::C:12
+led 0 0,0::C:13
 
 # aux
 aux 0 0 6 1700 2100 0 0
 aux 1 13 0 1700 2100 0 0
 aux 2 35 4 1700 2100 0 0
 aux 3 39 0 900 900 0 13
-
-# adjrange
-adjrange 0 0 1 900 1300 12 1 0 0
-adjrange 1 0 1 1300 1700 12 1 0 0
-adjrange 2 0 1 1700 2100 12 1 0 0
-adjrange 3 0 3 900 1300 29 3 0 0
-adjrange 4 0 3 1300 1700 29 3 0 0
-adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -129,7 +131,9 @@ set dyn_notch_max_hz = 550
 set gyro_lpf1_dyn_min_hz = 150
 set gyro_lpf1_dyn_max_hz = 300
 set acc_calibration = 22,-13,-54,1
+set baro_hardware = NONE
 set fpv_mix_degrees = 45
+set blackbox_device = NONE
 set motor_kv = 1300
 set dshot_bidir = ON
 set motor_output_reordering = 2,3,0,1,4,5,6,7
@@ -137,25 +141,21 @@ set bat_capacity = 2200
 set vbat_min_cell_voltage = 340
 set vbat_warning_cell_voltage = 355
 set yaw_motors_reversed = ON
-set rpm_limit = ON
-set rpm_limit_value = 13000
 set simplified_gyro_filter_multiplier = 60
-set ledstrip_visual_beeper_color = DEEP_PINK
-set ledstrip_profile = BEACON
+set ledstrip_grb_rgb = GRB
+set ledstrip_profile = RACE
 set ledstrip_race_color = DEEP_PINK
-set ledstrip_beacon_color = MAGENTA
-set extra_ledstrip_color = WHITE
 set osd_vbat_pos = 544
-set osd_link_quality_pos = 15884
-set osd_tim_2_pos = 15916
-set osd_throttle_pos = 14816
-set osd_vtx_channel_pos = 32239
+set osd_link_quality_pos = 15919
+set osd_tim_2_pos = 15919
+set osd_throttle_pos = 14880
+set osd_vtx_channel_pos = 32305
 set osd_craft_name_pos = 572
 set osd_pilot_name_pos = 555
 set osd_altitude_pos = 17964
-set osd_warnings_pos = 14739
+set osd_warnings_pos = 14804
 set osd_avg_cell_voltage_pos = 14880
-set osd_rate_profile_name_pos = 14848
+set osd_rate_profile_name_pos = 14880
 set osd_spec_logo_pos = 14403
 set debug_mode = RPM_LIMIT
 set vtx_band = 5
@@ -204,9 +204,111 @@ set ez_landing_limit = 5
 
 profile 1
 
+# profile 1
+set dterm_lpf1_dyn_min_hz = 90
+set dterm_lpf1_dyn_max_hz = 180
+set dterm_lpf1_static_hz = 90
+set dterm_lpf2_static_hz = 180
+set anti_gravity_gain = 90
+set iterm_relax_cutoff = 10
+set iterm_windup = 85
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set yaw_lowpass_hz = 125
+set p_pitch = 75
+set i_pitch = 87
+set d_pitch = 89
+set f_pitch = 229
+set p_roll = 71
+set i_roll = 83
+set d_roll = 71
+set f_roll = 220
+set p_yaw = 71
+set i_yaw = 83
+set f_yaw = 220
+set d_max_roll = 71
+set d_max_pitch = 89
+set thrust_linear = 20
+set simplified_master_multiplier = 160
+set simplified_i_gain = 65
+set simplified_d_gain = 150
+set simplified_d_max_gain = 0
+set simplified_feedforward_gain = 115
+set simplified_pitch_d_gain = 110
+set simplified_dterm_filter_multiplier = 120
+set ez_landing_limit = 5
+
 profile 2
 
+# profile 2
+set dterm_lpf1_dyn_min_hz = 90
+set dterm_lpf1_dyn_max_hz = 180
+set dterm_lpf1_static_hz = 90
+set dterm_lpf2_static_hz = 180
+set anti_gravity_gain = 90
+set iterm_relax_cutoff = 10
+set iterm_windup = 85
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set yaw_lowpass_hz = 125
+set p_pitch = 75
+set i_pitch = 87
+set d_pitch = 89
+set f_pitch = 229
+set p_roll = 71
+set i_roll = 83
+set d_roll = 71
+set f_roll = 220
+set p_yaw = 71
+set i_yaw = 83
+set f_yaw = 220
+set d_max_roll = 71
+set d_max_pitch = 89
+set thrust_linear = 20
+set simplified_master_multiplier = 160
+set simplified_i_gain = 65
+set simplified_d_gain = 150
+set simplified_d_max_gain = 0
+set simplified_feedforward_gain = 115
+set simplified_pitch_d_gain = 110
+set simplified_dterm_filter_multiplier = 120
+set ez_landing_limit = 5
+
 profile 3
+
+# profile 3
+set dterm_lpf1_dyn_min_hz = 90
+set dterm_lpf1_dyn_max_hz = 180
+set dterm_lpf1_static_hz = 90
+set dterm_lpf2_static_hz = 180
+set anti_gravity_gain = 90
+set iterm_relax_cutoff = 10
+set iterm_windup = 85
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set yaw_lowpass_hz = 125
+set p_pitch = 75
+set i_pitch = 87
+set d_pitch = 89
+set f_pitch = 229
+set p_roll = 71
+set i_roll = 83
+set d_roll = 71
+set f_roll = 220
+set p_yaw = 71
+set i_yaw = 83
+set f_yaw = 220
+set d_max_roll = 71
+set d_max_pitch = 89
+set thrust_linear = 20
+set simplified_master_multiplier = 160
+set simplified_i_gain = 65
+set simplified_d_gain = 150
+set simplified_d_max_gain = 0
+set simplified_feedforward_gain = 115
+set simplified_pitch_d_gain = 110
+set simplified_dterm_filter_multiplier = 120
+set ez_landing_limit = 5
 
 # restore original profile selection
 profile 0
@@ -236,8 +338,6 @@ set yaw_rc_rate = 90
 set roll_srate = 70
 set pitch_srate = 70
 set yaw_srate = 70
-set throttle_limit_type = SCALE
-set throttle_limit_percent = 80
 
 rateprofile 2
 
@@ -253,6 +353,17 @@ set pitch_srate = 70
 set yaw_srate = 70
 
 rateprofile 3
+
+# rateprofile 3
+set rateprofile_name = 600
+set thr_mid = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
 
 # restore original rateprofile selection
 rateprofile 0
