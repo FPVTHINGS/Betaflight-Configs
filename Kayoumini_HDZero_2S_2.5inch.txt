@@ -7,7 +7,7 @@
 # HARDWARE:
 #   Frame:      Kayoumini 2.5"
 #   FC/AIO:     HDZero AIO15
-#   Motors:     RCINPower 1203 11500KV
+#   Motors:     RCINPOWER 1202.5 115000kv
 #   Props:      Gemfan 2512 Tri-blade
 #   Camera:     HDZero Lux
 #   VTX:        Integrated HDZero
