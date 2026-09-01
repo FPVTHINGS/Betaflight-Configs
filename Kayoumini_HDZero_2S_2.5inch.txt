@@ -7,12 +7,15 @@
 # HARDWARE:
 #   Frame:      Kayoumini 2.5"
 #   FC/AIO:     HDZero AIO15
-#   Motors:     RCINPOWER 1202.5 115000kv
-#   Props:      Gemfan 2512 Tri-blade
+#   Motors:     RCINPOWER 1202 Plus (1202.5) 11,500kv
+#   Props:      Gemfan 2512 Tri-Blades
 #   Camera:     HDZero Lux
 #   VTX:        Integrated HDZero
-#   Antenna:    FlyFish RC Osprey RHCP Lollipop
-#   Battery:    2S Tattu 450mah HV Lipo 
+#   Antenna:    Stock whoop whip
+#   Battery:    Tattu LIHV 450mah 2S
+#
+#   Dry Weight: 63.4g
+#   AUW:        91.4g
 #
 # INTENDED USE: Freestyle / Yard Basher 
 #

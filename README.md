@@ -38,7 +38,7 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 | [Crux35_Analog_3S-4S_3.5inch.txt](Crux35_Analog_3S-4S_3.5inch.txt) | [Crux35 3.5"](images/Crux35_Analog_3S-4S_3.5inch.png) | 3S–4S | Analog | Freestyle |
 | [Grinderino_Analog_3S-4S_3.5inch.txt](Grinderino_Analog_3S-4S_3.5inch.txt) | [Ummagawd Grinderino 3.5"](images/Grinderino_Analog_3S-4S_3.5inch.jpeg) | 3S–4S | Analog | Freestyle / Park Basher |
 | [MGPProSpec7_HDZero_6S_7inch.txt](MGPProSpec7_HDZero_6S_7inch.txt) | [MultiGP Pro Spec 7"](images/MGPProSpec7_HDZero_6S_7inch.jpg) | 6S | HDZero | Racing (MultiGP Pro Spec Class) |
-| [Kayoumini_HDZero_2S_2.5inch.txt](Kayoumini_HDZero_2S_2.5inch.txt) | [Kayoumini 2.5"](images/Kayoumini_HDZero_2S_2.5inch.png) | 2S | HDZero | Freestyle / Yard Basher |
+| [Kayoumini_HDZero_2S_2.5inch.txt](Kayoumini_HDZero_2S_2.5inch.txt) | [Kayoumini 2.5"](images/Kayoumini_HDZero_2S_2.5inch.jpeg) | 2S | HDZero | Freestyle / Yard Basher |
 | [Mobula6_HDZero_Race_1S.txt](Mobula6_HDZero_Race_1S.txt) | [Mobula6 HD Eco Race](images/Mobula6_HDZero_Race_1S.png) | 1S Whoop | HDZero | Whoop Racing |
 | [Mobula7_HDZero_1S.txt](Mobula7_HDZero_1S.txt) | [Mobula7 HD](images/Mobula7_HDZero_1S.png) | 1S Whoop | HDZero | Whoop Freestyle / Racing |
 | [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | [Mobula8 HD ECO](images/Mobula8_HDZero_2S_2inch.png) | 2S Whoop | HDZero | Whoop Freestyle |
