@@ -16,7 +16,8 @@
 #   Dry weight: 145g as configured
 #   Capacitor:  470uF 35V
 #
-# INTENDED USE: Freestyle
+# INTENDED USE: 3S = Chill explorer freestyle, long flight times and mellow vibes
+#               4S = Pure ripper, max fun, still solid flight times
 #
 # BETAFLIGHT:
 #   Version:    Betaflight 4.5.3
