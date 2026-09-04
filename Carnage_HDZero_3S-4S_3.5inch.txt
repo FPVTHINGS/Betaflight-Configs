@@ -56,7 +56,7 @@ batch start
 board_name HDZERO_GAMMA
 manufacturer_id HDZO
 
-# name: CV235
+# name: carnage 3.5"
 
 # feature
 feature TELEMETRY
@@ -101,7 +101,8 @@ set fpv_mix_degrees = 45
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 set align_board_yaw = 0
-set bat_capacity = 650
+set bat_capacity = 680
+set vbat_max_cell_voltage = 440
 set vbat_min_cell_voltage = 335
 set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
@@ -109,18 +110,20 @@ set small_angle = 180
 set pid_process_denom = 2
 set osd_link_quality_pos = 15884
 set osd_tim_2_pos = 15916
-set osd_throttle_pos = 14816
+set osd_throttle_pos = 480
 set osd_vtx_channel_pos = 32239
-set osd_warnings_pos = 14738
-set osd_avg_cell_voltage_pos = 14880
-set osd_rate_profile_name_pos = 14848
+set osd_craft_name_pos = 556
+set osd_altitude_pos = 31264
+set osd_warnings_pos = 14707
+set osd_avg_cell_voltage_pos = 14848
+set osd_rate_profile_name_pos = 14816
 set osd_canvas_width = 50
 set osd_canvas_height = 18
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 3
 set vtx_freq = 5658
-set craft_name = CV235
+set craft_name = carnage 3.5"
 
 profile 0
 
