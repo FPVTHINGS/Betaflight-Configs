@@ -2,25 +2,26 @@
 # BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
 # ============================================================
 #
-# BUILD: Carnage V2 3.5" (Modified)
+# BUILD: Carnage V2 3.5" (Updated Gamma build)
 #
 # HARDWARE:
 #   Frame:      CNC Drones Carnage V2 3.5"
-#   FC/AIO:     GEPRC Taker G4 45A AIO
+#   FC/AIO:     HDZero Gamma 45A AIO
 #   Motors:     T-Hobby P1604 3800KV
 #   Props:      Gemfan 3520
 #   Camera:     HDZero Nano V3
 #   VTX:        HDZero Freestyle V2
-#   Antenna:    GEPRC Piano RHCP
 #   RX:         Nano ELRS
 #   Battery:    4S: GNB 850mah HV, 3S: BetaFPV Lava ii 680mah HV
+#   Dry weight: 145g as configured
+#   Capacitor:  470uF 35V
 #
 # INTENDED USE: Freestyle
 #
 # BETAFLIGHT:
 #   Version:    Betaflight 4.5.3
-#   Target:     STM32G47X (SG47) | TAKERG4AIO | Mfr: GEPR
-#   Date:       Jul 26 2026
+#   Target:     STM32G47X (SG47) | HDZERO_GAMMA | Mfr: HDZO
+#   Date:       Sep 3 2026
 #
 # NOTES:
 #   This is a community reference CLI shared as a starting point
@@ -42,34 +43,24 @@
 #
 # ============================================================
 
-defaults nosave
+# 
 
 # diff all
 
 # version
-# Betaflight / STM32G47X (SG47) 4.5.3 Jul 26 2026 / 15:46:16 (norevision) MSP API: 1.46
-# config rev: 92c695a
+# Betaflight / STM32G47X (SG47) 4.5.3 Nov 20 2025 / 14:57:06 (57c3471dc) MSP API: 1.46
 
 # start the command batch
 batch start
 
-# reset configuration to default settings
-defaults nosave
+board_name HDZERO_GAMMA
+manufacturer_id HDZO
 
-board_name TAKERG4AIO
-manufacturer_id GEPR
-# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
-signature
-
-# name: CARNAGE 3.5
+# name: CV235
 
 # feature
 feature TELEMETRY
 feature OSD
-
-# serial
-serial 0 131073 115200 57600 0 115200
-serial 1 64 115200 57600 0 115200
 
 # beacon
 beacon RX_LOST
@@ -105,38 +96,31 @@ vtxtable powerlabels 25 200 500 MAX 0
 # master
 set dyn_notch_count = 1
 set dyn_notch_q = 500
-# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
-# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
-set acc_calibration = 45,-38,15,1
-set mag_hardware = NONE
-set baro_hardware = NONE
-# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle for HD DVR horizon.
-# !! Adjust to match your actual camera physical tilt if you change the camera mount.
-set fpv_mix_degrees = 35
+set acc_calibration = -25,27,0,1
+set fpv_mix_degrees = 45
 set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
-set align_board_yaw = 90
-set bat_capacity = 750
-set vbat_max_cell_voltage = 440
-set vbat_warning_cell_voltage = 340
+set align_board_yaw = 0
+set bat_capacity = 650
+set vbat_min_cell_voltage = 335
+set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
 set small_angle = 180
-set crash_flip_expo = 30
-set osd_link_quality_pos = 11788
+set pid_process_denom = 2
+set osd_link_quality_pos = 15884
 set osd_tim_2_pos = 15916
-set osd_throttle_pos = 10720
-set osd_vtx_channel_pos = 28143
-set osd_craft_name_pos = 10804
-set osd_warnings_pos = 14708
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 32239
+set osd_warnings_pos = 14738
 set osd_avg_cell_voltage_pos = 14880
-set osd_rate_profile_name_pos = 10752
+set osd_rate_profile_name_pos = 14848
 set osd_canvas_width = 50
 set osd_canvas_height = 18
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 2
+set vtx_power = 1
 set vtx_freq = 5658
-set craft_name = CARNAGE 3.5
+set craft_name = CV235
 
 profile 0
 
@@ -165,15 +149,6 @@ set simplified_feedforward_gain = 90
 set simplified_pitch_d_gain = 105
 set ez_landing_limit = 5
 
-profile 1
-
-profile 2
-
-profile 3
-
-# restore original profile selection
-profile 0
-
 rateprofile 0
 
 # rateprofile 0
@@ -187,38 +162,7 @@ set roll_srate = 70
 set pitch_srate = 70
 set yaw_srate = 70
 
-rateprofile 1
+# end the command batch
+batch end
 
-# rateprofile 1
-set rateprofile_name = 600@85
-set thr_mid = 0
-set rates_type = BETAFLIGHT
-set roll_rc_rate = 90
-set pitch_rc_rate = 90
-set yaw_rc_rate = 90
-set roll_srate = 70
-set pitch_srate = 70
-set yaw_srate = 70
-set throttle_limit_type = SCALE
-set throttle_limit_percent = 85
-
-rateprofile 2
-
-# rateprofile 2
-set rateprofile_name = 533
-set thr_mid = 0
-set rates_type = BETAFLIGHT
-set roll_rc_rate = 80
-set pitch_rc_rate = 80
-set yaw_rc_rate = 80
-set roll_srate = 70
-set pitch_srate = 70
-set yaw_srate = 70
-
-rateprofile 3
-
-# restore original rateprofile selection
-rateprofile 0
-
-# save configuration
-save
+#
