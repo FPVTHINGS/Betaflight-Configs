@@ -1,5 +1,20 @@
 # 
-
+# BUILD: Carnage V2 3" (HDZero Gamma AIO)
+#
+# HARDWARE:
+#   Frame:      CNC Drones Carnage V2 3"
+#   FC/ESC:     HDZero Gamma 45A AIO
+#   Capacitor:  470uF 35V
+#   Motors:     T-Hobby P1604 3800KV
+#   Props:      HQProp 3x3x3
+#   Camera:     HDZero Micro V3
+#   VTX:        HDZero Freestyle V2
+#   Antenna:    GEPRC Piano RHCP
+#   RX:         Nano ELRS (UART2)
+#   Battery:    4S: R-Line 650mah Lipo
+#   Battery:    3S: Lava II 680mah LiHv
+#   Dry Weight: 136g
+#
 # diff all
 
 # version
