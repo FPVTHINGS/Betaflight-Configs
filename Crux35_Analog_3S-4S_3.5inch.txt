@@ -12,8 +12,8 @@
 #   Camera:     Baby Ratel 2 (analog)
 #   VTX:        TX800 (analog)
 #   Antenna:    Rush Cherry RHCP Lollipop
-#   RX:         Nano ELRS (UART4)
-#   Battery:    3S: BetaFPV 680mah HV Lipo, 4S: R-Line 650/850mah Lipos 
+#   RX:         Onboard ELRS
+#   Battery:    3S: BetaFPV 680mah HV Lipo, 4S: GNB 4S 850mah Lihv
 #
 # INTENDED USE: Freestyle
 #

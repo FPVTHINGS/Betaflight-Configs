@@ -7,13 +7,15 @@
 #   Capacitor:  470uF 35V
 #   Motors:     T-Hobby P1604 3800KV
 #   Props:      HQProp 3x3x3
-#   Camera:     HDZero Micro V3
+#   Camera:     Nano V3
 #   VTX:        HDZero Freestyle V2
 #   Antenna:    GEPRC Piano RHCP
-#   RX:         Nano ELRS (UART2)
-#   Battery:    4S: R-Line 650mah Lipo
-#   Battery:    3S: Lava II 680mah LiHv
+#   RX:         Onboard ELRS
+#   Battery:    3S: Lava II 680mah LiHv, 4S: GNB 4S 850mah Lihv
 #   Dry Weight: 136g
+#
+# INTENDED USE: Freestyle
+# NOTE: This build flies amazing on both 3S and 4s.
 #
 # diff all
 
