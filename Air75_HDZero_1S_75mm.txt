@@ -50,14 +50,6 @@
 #   This board has two gyros. The gyro_2 settings below are
 #   board-specific hardware configuration; do not adjust them.
 #
-#   NOTE — TPA active:
-#   tpa_rate = 65 / tpa_breakpoint = 1250 are set to protect the
-#   5A ESCs from thermal overload at full throttle on 1S.
-#
-#   NOTE — dshot_idle_value = 1100:
-#   Default of 600 caused desync/vibration at high throttle on 1S.
-#   1100 is the corrected value for this motor/ESC combo.
-#
 #   Key things to recalibrate/verify on your own unit:
 #     - acc_calibration          -> Run Accelerometer Calibration in BF Configurator
 #     - align_board_roll/yaw     -> Match your actual FC mounting orientation
@@ -98,6 +90,7 @@ resource MOTOR 3 B06
 resource MOTOR 4 B07
 
 # feature
+feature TELEMETRY
 feature OSD
 
 # serial
@@ -138,15 +131,17 @@ vtxtable powervalues 14 23 0
 vtxtable powerlabels 25 200 0
 
 # master
+set gyro_lpf1_static_hz = 0
 set dyn_notch_count = 2
-set dyn_notch_q = 400
+set dyn_notch_q = 600
+set dyn_notch_max_hz = 650
+set acc_trim_pitch = -3
 # !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
 # !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
-set acc_calibration = 0,0,0,1
+set acc_calibration = 101,196,48,1
 # !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
 # !! Adjust to match your actual camera physical tilt angle.
-set fpv_mix_degrees = 35
-set dshot_idle_value = 1100
+set fpv_mix_degrees = 45
 set dshot_burst = OFF
 set dshot_bidir = ON
 set dshot_bitbang = AUTO
@@ -162,29 +157,28 @@ set align_board_roll = 180
 set align_board_yaw = 45
 set bat_capacity = 480
 set vbat_max_cell_voltage = 440
-set vbat_min_cell_voltage = 330
-set vbat_warning_cell_voltage = 340
+set vbat_min_cell_voltage = 310
+set vbat_warning_cell_voltage = 320
 set yaw_motors_reversed = ON
 set small_angle = 180
 set deadband = 1
 set yaw_deadband = 1
 set pid_process_denom = 2
 set osd_warn_bitmask = 8191
-set osd_core_temp_alarm = 81
 set osd_vbat_pos = 45
 set osd_rssi_pos = 33
-set osd_link_quality_pos = 11788
+set osd_link_quality_pos = 15884
 set osd_link_tx_power_pos = 234
-set osd_rssi_dbm_pos = 1315
+set osd_rssi_dbm_pos = 1450
 set osd_rsnr_pos = 234
-set osd_tim_1_pos = 1354
-set osd_tim_2_pos = 11820
+set osd_tim_1_pos = 1067
+set osd_tim_2_pos = 15916
 set osd_remaining_time_estimate_pos = 234
-set osd_flymode_pos = 1514
+set osd_flymode_pos = 506
 set osd_anti_gravity_pos = 234
 set osd_g_force_pos = 65
-set osd_throttle_pos = 10720
-set osd_vtx_channel_pos = 28143
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 32239
 set osd_crosshairs_pos = 205
 set osd_ah_sbar_pos = 206
 set osd_ah_pos = 78
@@ -192,7 +186,7 @@ set osd_current_pos = 480
 set osd_mah_drawn_pos = 449
 set osd_wh_drawn_pos = 234
 set osd_motor_diag_pos = 234
-set osd_craft_name_pos = 10801
+set osd_craft_name_pos = 14901
 set osd_pilot_name_pos = 234
 set osd_gps_speed_pos = 234
 set osd_gps_lon_pos = 234
@@ -209,12 +203,12 @@ set osd_pid_yaw_pos = 234
 set osd_debug_pos = 234
 set osd_power_pos = 234
 set osd_pidrate_profile_pos = 234
-set osd_warnings_pos = 14706
+set osd_warnings_pos = 14707
 set osd_avg_cell_voltage_pos = 14880
 set osd_pit_ang_pos = 234
 set osd_rol_ang_pos = 234
 set osd_battery_usage_pos = 234
-set osd_disarmed_pos = 469
+set osd_disarmed_pos = 470
 set osd_nheading_pos = 234
 set osd_up_down_reference_pos = 205
 set osd_ready_mode_pos = 234
@@ -224,11 +218,11 @@ set osd_esc_rpm_freq_pos = 234
 set osd_rtc_date_time_pos = 234
 set osd_adjustment_range_pos = 234
 set osd_flip_arrow_pos = 234
-set osd_core_temp_pos = 280
+set osd_core_temp_pos = 1386
 set osd_log_status_pos = 234
 set osd_stick_overlay_left_pos = 234
 set osd_stick_overlay_right_pos = 234
-set osd_rate_profile_name_pos = 10752
+set osd_rate_profile_name_pos = 14848
 set osd_pid_profile_name_pos = 234
 set osd_profile_name_pos = 234
 set osd_rcchannels_pos = 234
@@ -247,13 +241,12 @@ set osd_sys_vtx_dvr_pos = 234
 set osd_sys_warnings_pos = 234
 set osd_sys_vtx_temp_pos = 234
 set osd_sys_fan_speed_pos = 234
-set osd_stat_bitmask = 133092
 set osd_canvas_width = 50
 set osd_canvas_height = 18
 set debug_mode = RX_EXPRESSLRS_SPI
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 2
+set vtx_power = 1
 set vtx_freq = 5658
 set displayport_msp_fonts = 0,0,0,0
 set gyro_1_sensor_align = DEFAULT
@@ -264,34 +257,41 @@ set gyro_2_sensor_align = CW0
 # !! the ExpressLRS tab in Betaflight Configurator or the ELRS Lua script.
 set expresslrs_rate_index = 1
 set expresslrs_model_id = 0
+set rpm_filter_weights = 100,20,100
+set rpm_filter_fade_range_hz = 100
 set craft_name = Airbula75 Eco
 
 profile 0
 
 # profile 0
-set throttle_boost = 7
-set p_pitch = 54
-set i_pitch = 97
-set d_pitch = 41
-set f_pitch = 123
-set p_roll = 51
-set i_roll = 92
-set d_roll = 36
-set f_roll = 118
-set p_yaw = 51
-set i_yaw = 92
-set f_yaw = 118
-set d_min_roll = 36
-set d_min_pitch = 41
+set dterm_lpf1_dyn_expo = 7
+set vbat_sag_compensation = 100
+set iterm_relax_cutoff = 30
+set iterm_limit = 500
+set pidsum_limit_yaw = 1000
+set p_pitch = 41
+set i_pitch = 70
+set d_pitch = 37
+set f_pitch = 110
+set p_roll = 41
+set i_roll = 70
+set d_roll = 37
+set f_roll = 111
+set p_yaw = 41
+set i_yaw = 70
+set f_yaw = 111
+set d_min_roll = 37
+set d_min_pitch = 37
 set thrust_linear = 20
-set tpa_rate = 65
-set tpa_breakpoint = 1250
-set dyn_idle_min_rpm = 35
-set simplified_master_multiplier = 110
-set simplified_d_gain = 110
-set simplified_pi_gain = 105
-set simplified_dmax_gain = 100
-set simplified_feedforward_gain = 90
+set simplified_master_multiplier = 155
+set simplified_i_gain = 95
+set simplified_d_gain = 80
+set simplified_pi_gain = 60
+set simplified_dmax_gain = 0
+set simplified_feedforward_gain = 60
+set simplified_pitch_d_gain = 90
+set simplified_pitch_pi_gain = 95
+set ez_landing_limit = 5
 
 profile 1
 
@@ -357,6 +357,6 @@ set pitch_srate = 70
 set yaw_srate = 70
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 1
 
 save
