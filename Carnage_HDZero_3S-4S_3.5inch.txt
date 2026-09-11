@@ -11,7 +11,6 @@
 #   Props:      Gemfan 3520
 #   Camera:     HDZero Nano V3
 #   VTX:        HDZero Freestyle V2
-#   RX:         Nano ELRS
 #   Battery:    4S: GNB 850mah HV, 3S: BetaFPV Lava ii 680mah HV
 #   Dry weight: 145g as configured
 #   Capacitor:  470uF 35V
