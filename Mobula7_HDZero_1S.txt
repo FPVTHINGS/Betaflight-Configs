@@ -7,7 +7,7 @@
 # HARDWARE:
 #   Frame:      HappyModel Mobula7 HD
 #   FC/AIO:     HDZero AIO5 (integrated ELRS SPI)
-#   Motors:     HappyModel RS0802 25000KV (1.5mm shaft)
+#   Motors:     WeBleed 0802 Vegan FPV 25000KV (1.5mm shaft)
 #   Props:      HQProp 40mm
 #   Camera:     HDZero Lux
 #   VTX:        Integrated HDZero
@@ -47,7 +47,7 @@
 #   Adjust if your mounting differs.
 #
 #   NOTE — Motor shaft size:
-#   HappyModel RS0802 motors use a 1.5mm shaft. Ensure replacement
+#   WeBleed 0802 Vegan FPV motors use a 1.5mm shaft. Ensure replacement
 #   props are compatible with this shaft diameter.
 #
 #   NOTE — Dual IMU:
@@ -83,7 +83,7 @@ manufacturer_id HAMO
 # mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
 signature
 
-# name: M7FHD
+# name: M7HD
 
 # resources
 resource MOTOR 1 B08
@@ -92,6 +92,7 @@ resource MOTOR 3 B06
 resource MOTOR 4 B07
 
 # feature
+feature TELEMETRY
 feature OSD
 
 # serial
@@ -145,7 +146,7 @@ set acc_lpf_hz = 10
 set acc_calibration = 101,196,48,1
 # !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
 # !! Adjust to match your actual camera physical tilt angle.
-set fpv_mix_degrees = 35
+set fpv_mix_degrees = 45
 set dshot_idle_value = 600
 set dshot_burst = OFF
 set dshot_bidir = ON
@@ -183,7 +184,7 @@ set osd_flymode_pos = 1514
 set osd_anti_gravity_pos = 234
 set osd_g_force_pos = 65
 set osd_throttle_pos = 14816
-set osd_vtx_channel_pos = 32239
+set osd_vtx_channel_pos = 15904
 set osd_crosshairs_pos = 205
 set osd_ah_sbar_pos = 206
 set osd_ah_pos = 78
@@ -191,8 +192,8 @@ set osd_current_pos = 480
 set osd_mah_drawn_pos = 449
 set osd_wh_drawn_pos = 234
 set osd_motor_diag_pos = 234
-set osd_craft_name_pos = 14900
-set osd_pilot_name_pos = 234
+set osd_craft_name_pos = 15854
+set osd_pilot_name_pos = 14892
 set osd_gps_speed_pos = 234
 set osd_gps_lon_pos = 234
 set osd_gps_lat_pos = 234
@@ -251,9 +252,9 @@ set osd_canvas_width = 50
 set osd_canvas_height = 18
 set debug_mode = RX_EXPRESSLRS_SPI
 set vtx_band = 5
-set vtx_channel = 8
-set vtx_power = 2
-set vtx_freq = 5917
+set vtx_channel = 1
+set vtx_power = 1
+set vtx_freq = 5658
 set displayport_msp_fonts = 0,0,0,0
 set gyro_1_sensor_align = DEFAULT
 set gyro_1_align_yaw = 0
@@ -265,7 +266,7 @@ set expresslrs_rate_index = 1
 set expresslrs_model_id = 0
 set rpm_filter_weights = 100,20,100
 set rpm_filter_fade_range_hz = 100
-set craft_name = M7FHD
+set craft_name = M7HD
 
 profile 0
 
@@ -275,19 +276,19 @@ set vbat_sag_compensation = 100
 set iterm_relax_cutoff = 30
 set iterm_limit = 500
 set pidsum_limit_yaw = 1000
-set p_pitch = 50
-set i_pitch = 68
-set d_pitch = 30
-set f_pitch = 101
-set p_roll = 53
-set i_roll = 72
-set d_roll = 31
-set f_roll = 108
-set p_yaw = 53
-set i_yaw = 72
-set f_yaw = 108
-set d_min_roll = 31
-set d_min_pitch = 30
+set p_pitch = 78
+set i_pitch = 105
+set d_pitch = 47
+set f_pitch = 156
+set p_roll = 83
+set i_roll = 111
+set d_roll = 48
+set f_roll = 167
+set p_yaw = 83
+set i_yaw = 111
+set f_yaw = 167
+set d_min_roll = 48
+set d_min_pitch = 47
 set thrust_linear = 20
 set simplified_master_multiplier = 155
 set simplified_i_gain = 75
@@ -339,15 +340,17 @@ set throttle_limit_percent = 85
 rateprofile 2
 
 # rateprofile 2
-set rateprofile_name = 533
+set rateprofile_name = 600@75
 set thr_mid = 0
 set rates_type = BETAFLIGHT
-set roll_rc_rate = 80
-set pitch_rc_rate = 80
-set yaw_rc_rate = 80
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
 set roll_srate = 70
 set pitch_srate = 70
 set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 75
 
 rateprofile 3
 

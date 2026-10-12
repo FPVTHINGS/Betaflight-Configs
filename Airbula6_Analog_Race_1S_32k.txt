@@ -60,6 +60,7 @@ signature
 # name: Airbula6 32k
 
 # feature
+feature TELEMETRY
 feature OSD
 
 # beacon
@@ -132,10 +133,11 @@ set osd_tim_2_pos = 14744
 set osd_remaining_time_estimate_pos = 33
 set osd_flymode_pos = 374
 set osd_throttle_pos = 14656
-set osd_vtx_channel_pos = 31067
+set osd_vtx_channel_pos = 14732
 set osd_current_pos = 384
 set osd_mah_drawn_pos = 386
-set osd_craft_name_pos = 14729
+set osd_craft_name_pos = 14681
+set osd_pilot_name_pos = 14345
 set osd_home_dist_pos = 98
 set osd_flight_dist_pos = 130
 set osd_warnings_pos = 14601
@@ -150,9 +152,10 @@ set osd_rate_profile_name_pos = 14688
 set osd_displayport_device = MAX7456
 set system_hse_mhz = 0
 set vtx_band = 5
-set vtx_channel = 1
-set vtx_power = 4
-set vtx_freq = 5658
+set vtx_channel = 3
+set vtx_power = 1
+set vtx_low_power_disarm = UNTIL_FIRST_ARM
+set vtx_freq = 5732
 set vcd_video_system = NTSC
 set craft_name = Airbula6 32k
 
@@ -225,7 +228,7 @@ set roll_srate = 70
 set pitch_srate = 70
 set yaw_srate = 70
 set throttle_limit_type = SCALE
-set throttle_limit_percent = 85
+set throttle_limit_percent = 70
 
 rateprofile 2
 
@@ -255,7 +258,7 @@ battery_profile 1
 battery_profile 2
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 1
 
 # restore original battery_profile selection
 battery_profile 0

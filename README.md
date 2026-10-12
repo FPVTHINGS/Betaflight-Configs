@@ -32,7 +32,7 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 |---|---|---|---|---|
 | [Airbula6_Analog_Race_1S_28k.txt](Airbula6_Analog_Race_1S_28k.txt) | [Airbula6 28k](images/Airbula6_Analog_Race_1S_28k.jpg) | 1S Whoop | Analog | Racing backup / Indoor Freestyle |
 | [Airbula6_Analog_Race_1S_32k.txt](Airbula6_Analog_Race_1S_32k.txt) | [Airbula6 32k](images/Airbula6_Analog_Race_1S_32k.jpg) | 1S Whoop | Analog | Pure Racing |
-| [Air75_HDZero_1S_75mm.txt](Air75_HDZero_1S_75mm.txt) | [BetaFPV Air75 II](images/Air75_HDZero_1S_75mm.jpg) | 1S Whoop | HDZero | Freestyle / Whoop Racing |
+| [Vegan75_Analog_1S_75mm.txt](Vegan75_Analog_1S_75mm.txt) | [Vegan75](images/Vegan75_Analog_1S_75mm.jpg) | 1S Whoop | Analog | Freestyle / Whoop Racing |
 | [BabyTurtle_Analog_1S_2inch.txt](BabyTurtle_Analog_1S_2inch.txt) | [Baby Turtle Custom 2"](images/BabyTurtle_Analog_1S_2inch.png) | 1S | Analog | Freestyle / Proximity |
 | [Carnage_HDZero_3S-4S_3.5inch.txt](Carnage_HDZero_3S-4S_3.5inch.txt) | [Carnage V2 3.5"](images/Carnage_HDZero_3S-4S_3.5inch.png) | 3S–4S | HDZero | Freestyle |
 | [Carnage_HDZero_4S_3inch.txt](Carnage_HDZero_4S_3inch.txt) | [Carnage V2 3"](images/Carnage_HDZero_4S_3inch.png) | 4S | HDZero | Freestyle |
