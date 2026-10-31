@@ -43,7 +43,7 @@ If you found your way here, welcome to my collection of Betaflight configs for v
 | [Mobula6_HDZero_Race_1S.txt](Mobula6_HDZero_Race_1S.txt) | [Mobula6 HD Eco Race](images/Mobula6_HDZero_Race_1S.png) | 1S Whoop | HDZero | Whoop Racing |
 | [Mobula7_HDZero_1S.txt](Mobula7_HDZero_1S.txt) | [Mobula7 HD](images/Mobula7_HDZero_1S.png) | 1S Whoop | HDZero | Whoop Freestyle / Racing |
 | [Mobula8_HDZero_2S_2inch.txt](Mobula8_HDZero_2S_2inch.txt) | [Mobula8 HD ECO](images/Mobula8_HDZero_2S_2inch.png) | 2S Whoop | HDZero | Whoop Freestyle |
-| [Crux3Ultra_HDZero_3S_3inch.txt](Crux3Ultra_HDZero_3S_3inch.txt) | [Crux3 Ultra 3" Toothpick](images/Crux3Ultra_HDZero_3S_3inch.jpg) | 3S LiHV | DJI O4 | Freestyle |
+| [Crux3Ultra_O4_Wide_3S_3inch.txt](Crux3Ultra_O4_Wide_3S_3inch.txt) | [Crux3 Ultra 3" Toothpick](images/Crux3Ultra_O4_Wide_3S_3inch.jpg) | 3S LiHV | DJI O4 | Freestyle |
 | [TinyTrainer_V2_HDZero_3S.txt](TinyTrainer_V2_HDZero_3S.txt) | [Tiny Trainer V2 3"](images/TinyTrainer_V2_HDZero_3S.png) | 3S | HDZero | Racing / Freestyle |
 | [TKSRocket_HDZero_1S_75mm.txt](TKSRocket_HDZero_1S_75mm.txt) | [TKS Rocket 75mm](images/TKSRocket_HDZero_1S_75mm.jpeg) | 1S Whoop | HDZero | Whoop Racing |
 | [Toothgrinder_1.8_HDZero_2S.txt](Toothgrinder_1.8_HDZero_2S.txt) | [Toothgrinder 1.8"](images/Toothgrinder_1.8_HDZero_2S.jpeg) | 2S | HDZero | Freestyle / Yard Basher |
