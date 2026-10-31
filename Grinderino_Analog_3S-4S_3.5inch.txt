@@ -65,7 +65,7 @@ manufacturer_id SPBE
 # mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
 signature 
 
-# name: GRINDERINO
+# name: grndrno
 
 # feature
 feature TELEMETRY
@@ -94,7 +94,7 @@ aux 3 39 0 900 900 0 13
 adjrange 0 0 1 900 1300 12 1 0 0
 adjrange 1 0 1 1300 1700 12 1 0 0
 adjrange 2 0 1 1700 2100 12 1 0 0
-adjrange 3 0 3 900 1300 29 4 0 0
+adjrange 3 0 3 900 1300 29 3 0 0
 adjrange 4 0 3 1300 1700 29 3 0 0
 adjrange 5 0 3 1700 2100 29 3 0 0
 
@@ -129,7 +129,6 @@ set vbat_min_cell_voltage = 335
 set vbat_warning_cell_voltage = 345
 set yaw_motors_reversed = ON
 set small_angle = 180
-set crash_flip_expo = 30
 set pid_process_denom = 2
 set osd_vbat_pos = 491
 set osd_rssi_pos = 491
@@ -152,7 +151,7 @@ set osd_current_pos = 491
 set osd_mah_drawn_pos = 491
 set osd_wh_drawn_pos = 491
 set osd_motor_diag_pos = 491
-set osd_craft_name_pos = 496
+set osd_craft_name_pos = 10731
 set osd_pilot_name_pos = 491
 set osd_gps_speed_pos = 491
 set osd_gps_lon_pos = 491
@@ -213,17 +212,17 @@ set osd_displayport_device = AUTO
 set osd_canvas_width = 30
 set osd_canvas_height = 16
 set vtx_band = 5
-set vtx_channel = 8
+set vtx_channel = 1
 set vtx_power = 4
 set vtx_low_power_disarm = ON
-set vtx_freq = 5917
+set vtx_freq = 5658
 set vcd_video_system = PAL
-set craft_name = GRINDERINO
+set craft_name = grndrno
 
 profile 0
 
 # profile 0
-set throttle_boost = 0
+set throttle_boost = 8
 set p_pitch = 56
 set i_pitch = 101
 set d_pitch = 41
@@ -243,7 +242,7 @@ set simplified_master_multiplier = 110
 set simplified_d_gain = 110
 set simplified_pi_gain = 110
 set simplified_dmax_gain = 0
-set simplified_feedforward_gain = 90
+set simplified_feedforward_gain = 120
 
 profile 1
 
@@ -364,7 +363,7 @@ set pitch_srate = 70
 set yaw_srate = 70
 
 # restore original rateprofile selection
-rateprofile 1
+rateprofile 0
 
 # save configuration
 save
