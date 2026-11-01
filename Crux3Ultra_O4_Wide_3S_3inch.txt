@@ -78,6 +78,8 @@ adjrange 4 0 3 1300 1700 29 3 0 0
 adjrange 5 0 3 1700 2100 29 3 0 0
 
 # master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
 set dyn_notch_max_hz = 700
 set acc_calibration = -89,-12,-37,1
 set dshot_bidir = ON
@@ -104,7 +106,7 @@ profile 0
 set dterm_lpf1_dyn_min_hz = 65
 set dterm_lpf1_dyn_max_hz = 130
 set dterm_lpf2_static_hz = 130
-set throttle_boost = 0
+set throttle_boost = 5
 set p_pitch = 51
 set i_pitch = 92
 set d_pitch = 37
@@ -118,7 +120,7 @@ set i_yaw = 88
 set f_yaw = 118
 set d_min_roll = 27
 set d_min_pitch = 31
-set d_max_gain = 45
+set d_max_gain = 30
 set thrust_linear = 20
 set dyn_idle_min_rpm = 45
 set simplified_pids_mode = OFF
