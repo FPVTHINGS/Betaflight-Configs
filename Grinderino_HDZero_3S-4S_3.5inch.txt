@@ -1,0 +1,243 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Ummagawd Grinderino 3.5" (HDZero Digital Rebuild)
+#
+# HARDWARE:
+#   Frame:      Ummagawd Grinderino 3.5"
+#   FC/AIO:     HDZero Gamma 45A AIO
+#   Motors:     RCINPower 1804 3450KV
+#   Props:      Gemfan 3520 (Tri-Blade)
+#   Camera:     HDZero Micro V3 (16:9)
+#   VTX:        HDZero Freestyle V2
+#   Antenna:    Rush Cherry MMCX RHCP
+#   RX:         Nano ELRS (UART3)
+#   Battery:    3S–4S 850mAh Lipo
+#
+# INTENDED USE: Freestyle / Park Basher
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 2026.6.2
+#   Target:     STM32G474 (G474) | HDZERO_GAMMA | Mfr: HDZO
+#   Date:       Sep 20, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   This build was rebuilt from analog to HDZero digital: the AIO
+#   was swapped to an HDZero Gamma 45A AIO, the camera to an HDZero
+#   Micro V3 (16:9), and the VTX to an HDZero Freestyle V2. Frame,
+#   motors, props, RX, and battery carry over unchanged from the
+#   analog build.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration          -> Run Accelerometer Calibration in BF Configurator
+#     - fpv_mix_degrees          -> Adjust to match your actual camera tilt angle
+#     - align_board_yaw          -> Match your actual FC mounting orientation
+#     - motor_output_reordering  -> Verify motor order props-off
+#
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
+# ============================================================
+
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32G474 (G474) 2026.6.2 Sep 20 2026 / 14:47:31 (e0b7bb01b) MSP API: 1.48
+# config rev: 3a406c5
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name HDZERO_GAMMA
+manufacturer_id HDZO
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: grndrno
+
+# feature
+feature TELEMETRY
+feature OSD
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 0 1700 2100 0 0
+aux 1 13 2 1700 2100 0 0
+aux 2 35 2 1300 1700 0 0
+
+# adjrange
+adjrange 0 0 1 900 1300 12 1 0 0
+adjrange 1 0 1 1300 1700 12 1 0 0
+adjrange 2 0 1 1700 2100 12 1 0 0
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM  5705    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM  5740 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
+vtxtable powerlevels 5
+vtxtable powervalues 14 23 27 30 0
+vtxtable powerlabels 25 200 500 MAX 0
+
+# vtx
+vtx 0 4 0 0 1 900 1200
+vtx 1 4 0 0 3 1300 1700
+vtx 2 4 0 0 4 1800 2100
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = -12,-7,3,1
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
+# !! Adjust to match your actual camera physical tilt angle.
+set fpv_mix_degrees = 45
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT300
+# !! AIRCRAFT-SPECIFIC: Motor output reordering is specific to wiring on this build.
+# !! Verify motor spin directions and order with props off before flying.
+set motor_output_reordering = 1,3,0,2,4,5,6,7
+# !! AIRCRAFT-SPECIFIC: FC is mounted rotated 45 degrees (yaw) in this frame.
+# !! Adjust to match your actual FC mounting orientation.
+set align_board_yaw = 45
+set yaw_motors_reversed = ON
+set small_angle = 180
+set pid_process_denom = 2
+set osd_link_quality_pos = 15885
+set osd_tim_2_pos = 15916
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 14902
+set osd_altitude_pos = 32237
+set osd_avg_cell_voltage_pos = 14880
+set osd_rate_profile_name_pos = 14848
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 3
+set vtx_freq = 5658
+set displayport_msp_fonts = 0,0,0,0
+set craft_name = grndrno
+
+profile 0
+
+# profile 0
+set iterm_windup = 85
+set throttle_boost = 8
+set p_pitch = 56
+set i_pitch = 101
+set d_pitch = 41
+set f_pitch = 123
+set p_roll = 54
+set i_roll = 96
+set d_roll = 36
+set f_roll = 118
+set p_yaw = 54
+set i_yaw = 96
+set f_yaw = 118
+set d_max_gain = 37
+set d_max_advance = 20
+set launch_control_mode = NORMAL
+set thrust_linear = 20
+set feedforward_averaging = OFF
+set feedforward_smooth_factor = 25
+set dyn_idle_min_rpm = 30
+set simplified_pids_mode = OFF
+set simplified_master_multiplier = 110
+set simplified_d_gain = 110
+set simplified_pi_gain = 110
+set simplified_d_max_gain = 0
+set simplified_feedforward_gain = 120
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+battery_profile 0
+
+# battery_profile 0
+set bat_capacity = 850
+set vbat_max_cell_voltage = 440
+
+battery_profile 1
+
+battery_profile 2
+
+# restore original rateprofile selection
+rateprofile 1
+
+# restore original battery_profile selection
+battery_profile 0
+
+# save configuration
+save
+#
