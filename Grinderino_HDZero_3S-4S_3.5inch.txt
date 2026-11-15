@@ -13,7 +13,7 @@
 #   VTX:        HDZero Freestyle V2
 #   Antenna:    Rush Cherry MMCX RHCP
 #   RX:         Nano ELRS (UART3)
-#   Battery:    3S–4S 850mAh Lipo
+#   Battery:    4S 850mAh Lipo/Lihv 
 #
 # INTENDED USE: Freestyle / Park Basher
 #
