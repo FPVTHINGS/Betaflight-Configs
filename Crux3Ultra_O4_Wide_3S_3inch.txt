@@ -11,7 +11,7 @@
 #   Props:      Gemfan 3020 tri-blade
 #   VTX:        DJI O4 Wide
 #   Antenna:    Foxeer U.FL antenna
-#   Battery:    Lava II 680mAh 3S LiHV (4.40V max)
+#   Battery:    Lava II 680mAh 3S LiHV
 #
 # INTENDED USE: Freestyle
 #
