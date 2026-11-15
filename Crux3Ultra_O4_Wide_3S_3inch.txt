@@ -55,8 +55,7 @@ manufacturer_id HDZO
 # mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
 signature
 
-# name: 3IN3STPK
-
+# name: Crux3 Ultra O4W
 # feature
 feature SERVO_TILT
 feature TELEMETRY
@@ -95,7 +94,7 @@ set osd_altitude_pos = 32238
 set osd_avg_cell_voltage_pos = 14913
 set osd_rate_profile_name_pos = 14881
 set osd_sys_bitrate_pos = 1414
-set craft_name = 3IN3STPK
+set craft_name = Crux3 Ultra O4W
 
 profile 0
 
