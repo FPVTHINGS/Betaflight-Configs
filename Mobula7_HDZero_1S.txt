@@ -106,18 +106,15 @@ beacon RX_LOST
 beacon RX_SET
 
 # aux
-aux 0 0 6 1700 2100 0 0
-aux 1 13 0 1700 2100 0 0
-aux 2 35 4 1700 2100 0 0
+aux 0 0 0 1700 2100 0 0
+aux 1 13 2 1700 2100 0 0
+aux 2 35 2 1300 1700 0 0
 aux 3 39 0 900 900 0 13
 
 # adjrange
 adjrange 0 0 1 900 1300 12 1 0 0
 adjrange 1 0 1 1300 1700 12 1 0 0
 adjrange 2 0 1 1700 2100 12 1 0 0
-adjrange 3 0 3 900 1300 29 4 0 0
-adjrange 4 0 3 1300 1700 29 3 0 0
-adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -131,6 +128,11 @@ vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
 vtxtable powerlevels 3
 vtxtable powervalues 14 23 0
 vtxtable powerlabels 25 200 0
+
+# vtx
+vtx 0 4 0 0 1 900 1200
+vtx 1 4 0 0 2 1300 1700
+vtx 2 4 0 0 3 1800 2100
 
 # master
 set gyro_lpf1_static_hz = 0
@@ -147,6 +149,7 @@ set acc_calibration = 101,196,48,1
 # !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
 # !! Adjust to match your actual camera physical tilt angle.
 set fpv_mix_degrees = 45
+set blackbox_device = NONE
 set dshot_idle_value = 600
 set dshot_burst = OFF
 set dshot_bidir = ON
@@ -209,7 +212,7 @@ set osd_pid_yaw_pos = 234
 set osd_debug_pos = 234
 set osd_power_pos = 234
 set osd_pidrate_profile_pos = 234
-set osd_warnings_pos = 329
+set osd_warnings_pos = 14707
 set osd_avg_cell_voltage_pos = 14880
 set osd_pit_ang_pos = 234
 set osd_rol_ang_pos = 234
@@ -252,9 +255,9 @@ set osd_canvas_width = 50
 set osd_canvas_height = 18
 set debug_mode = RX_EXPRESSLRS_SPI
 set vtx_band = 5
-set vtx_channel = 1
+set vtx_channel = 3
 set vtx_power = 1
-set vtx_freq = 5658
+set vtx_freq = 5732
 set displayport_msp_fonts = 0,0,0,0
 set gyro_1_sensor_align = DEFAULT
 set gyro_1_align_yaw = 0

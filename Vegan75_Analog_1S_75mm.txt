@@ -68,9 +68,9 @@ beacon RX_LOST
 beacon RX_SET
 
 # aux
-aux 0 0 6 1700 2100 0 0
-aux 1 13 0 1700 2100 0 0
-aux 2 35 4 1700 2100 0 0
+aux 0 0 0 1700 2100 0 0
+aux 1 13 2 1700 2100 0 0
+aux 2 35 2 1300 1700 0 0
 aux 3 39 0 900 900 0 13
 
 # adjrange
@@ -93,6 +93,11 @@ vtxtable band 6 LOWRACE  L FACTORY 5362 5399 5436 5473 5510 5547 5584 5621
 vtxtable powerlevels 5
 vtxtable powervalues 1 2 3 4 0
 vtxtable powerlabels 25 100 200 400 PIT
+
+# vtx
+vtx 0 4 0 0 1 900 1200
+vtx 1 4 0 0 3 1300 1700
+vtx 2 4 0 0 4 1800 2100
 
 # master
 set gyro_lpf1_static_hz = 0
@@ -255,6 +260,7 @@ rateprofile 3
 battery_profile 0
 
 # battery_profile 0
+set bat_capacity = 480
 set vbat_max_cell_voltage = 440
 set vbat_warning_cell_voltage = 345
 
