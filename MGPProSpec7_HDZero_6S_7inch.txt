@@ -91,13 +91,6 @@ feature OSD
 serial UART3 0 115200 57600 0 115200
 serial UART4 131073 115200 57600 0 115200
 
-# resource
-# Default LED_STRIP pad B10 burned out; remapped to R3 (PB11, TIM2_CH4)
-resource LED_STRIP 1 B11
-resource SERIAL_RX 3 NONE
-resource SERIAL_TX 2 NONE
-resource SERIAL_TX 5 NONE
-
 # beacon
 beacon RX_LOST
 
@@ -105,17 +98,15 @@ beacon RX_LOST
 led 0 0,0::C:13
 
 # aux
-aux 0 0 6 1700 2100 0 0
-aux 1 13 0 1700 2100 0 0
-aux 2 35 4 1700 2100 0 0
+aux 0 0 0 1700 2100 0 0
+aux 1 13 2 1700 2100 0 0
+aux 2 35 2 1300 1700 0 0
 aux 3 39 0 900 900 0 13
 
+# adjrange
 adjrange 0 0 1 900 1300 12 1 0 0
 adjrange 1 0 1 1300 1700 12 1 0 0
 adjrange 2 0 1 1700 2100 12 1 0 0
-adjrange 3 0 3 900 1300 29 4 0 0
-adjrange 4 0 3 1300 1700 29 3 0 0
-adjrange 5 0 3 1700 2100 29 3 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -129,6 +120,11 @@ vtxtable band 6 LOWBAND  L CUSTOM     0    0    0    0    0    0    0    0
 vtxtable powerlevels 3
 vtxtable powervalues 14 23 0
 vtxtable powerlabels 25 200 0
+
+# vtx
+vtx 0 4 0 0 1 900 1300
+vtx 1 4 0 0 2 1300 1700
+vtx 2 4 0 0 3 1700 2100
 
 # master
 set gyro_lpf1_static_hz = 150
@@ -148,26 +144,26 @@ set bat_capacity = 2200
 set vbat_min_cell_voltage = 340
 set vbat_warning_cell_voltage = 355
 set yaw_motors_reversed = ON
+set rpm_limit = ON
+set rpm_limit_value = 13000
 set simplified_gyro_filter_multiplier = 60
-set ledstrip_grb_rgb = GRB
 set ledstrip_profile = RACE
 set ledstrip_race_color = DEEP_PINK
 set osd_vbat_pos = 544
-set osd_link_quality_pos = 15919
-set osd_tim_2_pos = 15919
-set osd_throttle_pos = 14880
-set osd_vtx_channel_pos = 32305
-set osd_craft_name_pos = 572
-set osd_pilot_name_pos = 555
+set osd_link_quality_pos = 15884
+set osd_tim_2_pos = 15916
+set osd_throttle_pos = 14816
+set osd_vtx_channel_pos = 32239
+set osd_craft_name_pos = 14908
+set osd_pilot_name_pos = 14893
 set osd_altitude_pos = 17964
-set osd_warnings_pos = 14804
 set osd_avg_cell_voltage_pos = 14880
-set osd_rate_profile_name_pos = 14880
+set osd_rate_profile_name_pos = 14848
 set osd_spec_logo_pos = 14403
 set debug_mode = RPM_LIMIT
 set vtx_band = 5
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 2
 set vtx_freq = 5658
 set rpm_filter_weights = 100,50,100
 set craft_name = Pro Spec 7"
