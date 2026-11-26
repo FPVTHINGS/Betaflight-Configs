@@ -8,11 +8,11 @@
 #   Motors:     T-Hobby P1604 3800KV
 #   Props:      HQProp 3x3x3
 #   Camera:     Nano V3
-#   VTX:        HDZero Freestyle V2
+#   VTX:        HDZero Whoop V2 VTX
 #   Antenna:    GEPRC Piano RHCP
 #   RX:         Onboard ELRS
 #   Battery:    3S: Lava II 680mah LiHv, 4S: GNB 4S 850mah Lihv
-#   Dry Weight: 136g
+#   Dry Weight: 118.78g
 #
 # INTENDED USE: Freestyle
 # NOTE: This build flies amazing on both 3S and 4s.
@@ -30,7 +30,7 @@ defaults nosave
 
 board_name HDZERO_GAMMA
 manufacturer_id HDZO
-mcu_id 004500564143500320363346
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
 signature 
 
 # name: carnage 3"
