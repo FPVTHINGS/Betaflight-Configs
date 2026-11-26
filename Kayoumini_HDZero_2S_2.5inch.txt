@@ -9,13 +9,13 @@
 #   FC/AIO:     HDZero AIO15
 #   Motors:     RCINPOWER 1202 Plus (1202.5) 11,500kv
 #   Props:      Gemfan 2512 Tri-Blades
-#   Camera:     HDZero Lux
+#   Camera:     HDZero Eco
 #   VTX:        Integrated HDZero
-#   Antenna:    Stock whoop whip
+#   Antenna:    Factory dipole antenna
 #   Battery:    Tattu LIHV 450mah 2S
 #
-#   Dry Weight: 63.4g
-#   AUW:        91.4g
+#   Dry Weight: 64.2g
+#   AUW:        94.2g
 #
 # INTENDED USE: Freestyle / Yard Basher 
 #
@@ -29,6 +29,9 @@
 #   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
 #   tied to this individual unit's hardware calibration or physical
 #   mounting and MUST be adjusted for your own build.
+#
+#   Tune: the PID and filter tune is the one provided by Kayou
+#   frames, with a few small tweaks. Full credit to Kayou.
 #
 #   IMPORTANT — Motor pin remapping:
 #   This build uses a custom motor resource mapping specific to the
