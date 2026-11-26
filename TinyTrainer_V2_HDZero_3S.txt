@@ -9,7 +9,7 @@
 #   FC/AIO:     Foxeer F745 V4 AIO
 #   Motors:     T-Hobby F1404 4600KV
 #   Props:      Gemfan 3020
-#   Camera:     HDZero Micro V3
+#   Camera:     HDZero Nano90 V2
 #   VTX:        HDZero Whoop V2
 #   Antenna:    Foxeer Lightweight RHCP Lollipop
 #   RX:         Nano ELRS (UART4)
