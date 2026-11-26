@@ -1,0 +1,313 @@
+# ============================================================
+# BETAFLIGHT CLI - COMMUNITY REFERENCE CONFIG
+# ============================================================
+#
+# BUILD: Batwing 7" Long Range Freestyle (Analog)
+#
+# HARDWARE:
+#   Frame:      Pyrodrone Source One V3 7" w/ Deadcat arms
+#   FC:         MicoAir743 V2
+#   ESC:        NBD Hummingbird 305 80A
+#   Motors:     EMAX ECO II 2807 1300KV
+#   Props:      HQProp 7x4x3
+#   Camera:     Caddx Ratel 2 (Analog)
+#   VTX:        TBS Unify Pro32 HV DP
+#   RX:         Radiomaster Bandit 915mhz ELRS 
+#   GPS:        MicoAir GPS/Compass
+#   Battery:    6S (battery profiles for 2200mAh and 5000mAh packs)
+#
+# INTENDED USE: Long Range / Freestyle
+#
+# BETAFLIGHT:
+#   Version:    Betaflight 2026.6.2
+#   Target:     STM32H743 (H743) | MICOAIR743V2 | Mfr: MICO
+#   Date:       Nov 4, 2026
+#
+# NOTES:
+#   This is a community reference CLI shared as a starting point
+#   for similar builds. Values marked "!! AIRCRAFT-SPECIFIC" are
+#   tied to this individual unit's hardware calibration or physical
+#   mounting and MUST be adjusted for your own build.
+#
+#   Tune: the PID and filter tune on this build is the SupaflyFPV
+#   Freestyle 7 Inch tune from the Betaflight Community Presets
+#   (profile name "SupaFly"). It works really well on this build
+#   for both long range cruising and freestyle. Full credit to
+#   SupaflyFPV.
+#
+#   This is an analog build with a GPS. The GPS is on UART3, the
+#   VTX control (SmartAudio) is on UART5, and ESC telemetry is on
+#   UART7. The MicoAir743 V2 has an onboard compass, so no
+#   external magnetometer is needed.
+#
+#   mag_declination has been removed since it is specific to your
+#   location. Set your own in the Betaflight Configurator GPS tab.
+#
+#   Key things to recalibrate/verify on your own unit:
+#     - acc_calibration          -> Run Accelerometer Calibration in BF Configurator
+#     - mag_calibration          -> Run Compass calibration in BF Configurator
+#     - mag_align_*              -> Match the compass orientation on your own FC mounting
+#     - fpv_mix_degrees          -> Adjust to match your actual camera tilt angle
+#     - motor_output_reordering  -> Verify motor order props-off
+#     - vtx_band/channel/power   -> Set your own before flying
+#
+# AUTHOR:
+#   Built and shared by deleteme — https://github.com/deleteme
+#   Repository: https://github.com/FPVTHINGS/Betaflight-Configs
+#
+# ============================================================
+
+defaults nosave
+
+# diff all
+
+# version
+# Betaflight / STM32H743 (H743) 2026.6.2 Nov  4 2026 / 19:36:05 (e0b7bb01b) MSP API: 1.48
+# config rev: 3a406c5
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name MICOAIR743V2
+manufacturer_id MICO
+# mcu_id <REMOVED — unique to your hardware, auto-populated by Betaflight on connect>
+signature
+
+# name: BATWING
+
+# feature
+feature GPS
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+feature ESC_SENSOR
+
+# serial
+serial UART1 64 115200 57600 0 115200
+serial UART5 2048 115200 57600 0 115200
+serial UART6 0 115200 57600 0 115200
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 0 1700 2100 0 0
+aux 1 13 2 1700 2100 0 0
+aux 2 35 2 1300 1700 0 0
+
+# adjrange
+adjrange 0 0 1 900 1300 12 1 0 0
+adjrange 1 0 1 1300 1700 12 1 0 0
+adjrange 2 0 1 1700 2100 12 1 0 0
+adjrange 3 0 3 900 1300 33 3 0 0
+adjrange 4 0 3 1300 1700 33 3 0 0
+adjrange 5 0 3 900 1300 29 3 0 0
+adjrange 6 0 3 1300 1700 29 3 0 0
+
+# vtxtable
+vtxtable bands 5
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A FACTORY 5865 5845 5825 5805 5785 5765 5745 5725
+vtxtable band 2 BOSCAM_B B FACTORY 5733 5752 5771 5790 5809 5828 5847 5866
+vtxtable band 3 BOSCAM_E E FACTORY 5705 5685 5665 5645 5885 5905 5925 5945
+vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860 5880
+vtxtable band 5 RACEBAND R FACTORY 5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable powerlevels 3
+vtxtable powervalues 10 500 999
+vtxtable powerlabels 10 500 999
+
+# vtx
+vtx 0 4 0 0 1 900 1300
+vtx 1 4 0 0 2 1300 1700
+vtx 2 4 0 0 3 1700 2100
+
+# rxfail
+rxfail 8 s 1000
+
+# master
+set gyro_lpf1_static_hz = 0
+set gyro_lpf2_static_hz = 300
+set dyn_notch_count = 2
+set dyn_notch_q = 400
+set dyn_notch_min_hz = 40
+set dyn_notch_max_hz = 400
+set gyro_lpf1_dyn_min_hz = 0
+# !! AIRCRAFT-SPECIFIC: These values are calibrated to this specific FC's IMU.
+# !! Run Accelerometer Calibration in Betaflight Configurator after flashing this config.
+set acc_calibration = 19,-9,-21,1
+# !! AIRCRAFT-SPECIFIC: Compass orientation and calibration for the onboard compass.
+# !! Verify the alignment and recalibrate the compass for your own mounting.
+set align_mag = CW90FLIP
+set mag_align_pitch = 1800
+set mag_align_yaw = 900
+set mag_calibration = -10,137,582
+set rc_smoothing_auto_factor = 50
+set rc_smoothing_auto_factor_throttle = 50
+# !! NOTE: fpv_mix_degrees sets the camera tilt compensation angle.
+# !! Adjust to match your actual camera physical tilt angle.
+set fpv_mix_degrees = 30
+set blackbox_sample_rate = 1/1
+set dshot_bidir = ON
+set motor_pwm_protocol = DSHOT300
+# !! AIRCRAFT-SPECIFIC: Motor output reordering is specific to wiring on this build.
+# !! Verify motor spin directions and order with props off before flying.
+set motor_output_reordering = 2,3,0,1,4,5,6,7
+set yaw_motors_reversed = ON
+set small_angle = 180
+set gps_ublox_use_galileo = ON
+set deadband = 5
+set yaw_deadband = 5
+set simplified_gyro_filter_multiplier = 60
+set osd_units = IMPERIAL
+set osd_logo_on_arming_duration = 50
+set osd_link_quality_pos = 14808
+set osd_tim_2_pos = 14840
+set osd_throttle_pos = 14752
+set osd_vtx_channel_pos = 31163
+set osd_current_pos = 14827
+set osd_mah_drawn_pos = 14834
+set osd_gps_speed_pos = 14400
+set osd_gps_lon_pos = 6161
+set osd_gps_lat_pos = 6144
+set osd_gps_sats_pos = 14368
+set osd_home_dir_pos = 14350
+set osd_home_dist_pos = 14425
+set osd_altitude_pos = 14391
+set osd_warnings_pos = 14729
+set osd_avg_cell_voltage_pos = 14816
+set osd_rate_profile_name_pos = 14784
+set osd_battery_profile_name_pos = 14823
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 1
+set vtx_freq = 5658
+set vcd_video_system = PAL
+set rpm_filter_weights = 90,60,90
+set rpm_filter_q = 600
+set rpm_filter_min_hz = 50
+set craft_name = BATWING
+
+profile 0
+
+# profile 0
+# SupaflyFPV Freestyle 7 Inch tune (Betaflight Community Presets)
+set profile_name = SupaFly
+set dterm_lpf1_dyn_min_hz = 0
+set dterm_lpf1_static_hz = 0
+set dterm_lpf2_type = PT3
+set dterm_lpf2_static_hz = 120
+set anti_gravity_gain = 120
+set iterm_relax_cutoff = 6
+set p_pitch = 62
+set i_pitch = 100
+set d_pitch = 53
+set f_pitch = 141
+set p_roll = 56
+set i_roll = 90
+set d_roll = 43
+set f_roll = 129
+set p_yaw = 56
+set i_yaw = 90
+set f_yaw = 129
+set d_max_roll = 57
+set d_max_pitch = 72
+set thrust_linear = 10
+set dyn_idle_min_rpm = 30
+set simplified_master_multiplier = 120
+set simplified_i_gain = 90
+set simplified_d_gain = 120
+set simplified_pi_gain = 105
+set simplified_feedforward_gain = 90
+set simplified_pitch_d_gain = 110
+set simplified_pitch_pi_gain = 105
+set simplified_dterm_filter_multiplier = 80
+set tpa_rate = 70
+set tpa_breakpoint = 1250
+set tpa_low_breakpoint = 1100
+
+profile 1
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 0
+
+rateprofile 0
+
+# rateprofile 0
+set rateprofile_name = 600
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 1
+
+# rateprofile 1
+set rateprofile_name = 600@85
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 90
+set pitch_rc_rate = 90
+set yaw_rc_rate = 90
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+set throttle_limit_type = SCALE
+set throttle_limit_percent = 85
+
+rateprofile 2
+
+# rateprofile 2
+set rateprofile_name = 533
+set thr_mid = 0
+set thr_hover = 0
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 80
+set pitch_rc_rate = 80
+set yaw_rc_rate = 80
+set roll_srate = 70
+set pitch_srate = 70
+set yaw_srate = 70
+
+rateprofile 3
+
+battery_profile 0
+
+# battery_profile 0
+set battery_profile_name = 2200
+set bat_capacity = 2200
+set vbat_warning_cell_voltage = 345
+
+battery_profile 1
+
+# battery_profile 1
+set battery_profile_name = 5000
+set bat_capacity = 5000
+set vbat_max_cell_voltage = 420
+set vbat_min_cell_voltage = 290
+set vbat_warning_cell_voltage = 320
+
+battery_profile 2
+
+# restore original rateprofile selection
+rateprofile 0
+
+# restore original battery_profile selection
+battery_profile 0
+
+# save configuration
+save
+# 

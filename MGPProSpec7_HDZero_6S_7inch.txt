@@ -28,8 +28,9 @@
 #   tied to this individual unit's hardware calibration or physical
 #   mounting and MUST be adjusted for your own build.
 #
-#   PID tune is Mondo's MultiGP Pro Spec tune, sourced from the
-#   Betaflight Community Presets. Full credit to Mondo.
+#   PID and filter tune is the Mondo tune (Mondo's MultiGP Pro Spec
+#   preset), sourced from the Betaflight Community Presets. Full
+#   credit to Mondo.
 #
 #   This is an HDZero digital build. The OSD canvas is set for
 #   HDZero (50x18). VTX table reflects frequencies for the
