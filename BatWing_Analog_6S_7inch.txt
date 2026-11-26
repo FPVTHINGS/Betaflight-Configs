@@ -16,6 +16,8 @@
 #   GPS:        MicoAir GPS/Compass
 #   Battery:    6S (battery profiles for 2200mAh and 5000mAh packs)
 #
+#   Dry Weight: 616g
+#
 # INTENDED USE: Long Range / Freestyle
 #
 # BETAFLIGHT:
