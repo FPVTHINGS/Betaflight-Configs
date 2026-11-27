@@ -99,23 +99,22 @@ set craft_name = Crux3 Ultra O4W
 profile 0
 
 # profile 0
-set dterm_lpf1_dyn_min_hz = 65
-set dterm_lpf1_dyn_max_hz = 130
-set dterm_lpf2_static_hz = 130
+set dterm_lpf1_dyn_min_hz = 80
+set dterm_lpf1_dyn_max_hz = 155
 set p_pitch = 51
 set i_pitch = 92
-set d_pitch = 37
+set d_pitch = 41
 set f_pitch = 123
 set p_roll = 49
 set i_roll = 88
-set d_roll = 32
+set d_roll = 36
 set f_roll = 118
 set p_yaw = 49
 set i_yaw = 88
 set f_yaw = 118
 set d_min_roll = 27
 set d_min_pitch = 31
-set d_max_gain = 30
+set d_max_gain = 40
 set thrust_linear = 20
 set dyn_idle_min_rpm = 50
 set simplified_pids_mode = OFF
@@ -124,7 +123,6 @@ set simplified_d_gain = 110
 set simplified_dmax_gain = 37
 set simplified_feedforward_gain = 90
 set simplified_dterm_filter = OFF
-set tpa_rate = 75
 set ez_landing_limit = 5
 
 profile 1
